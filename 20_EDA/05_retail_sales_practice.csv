@@ -1,0 +1,506 @@
+OrderID,OrderDate,CustomerName,CustomerAge,Gender,City,Category,SubCategory,Quantity,UnitPrice,Discount(%),Sales,Profit,ShippingCost,PaymentMethod,Rating
+ORD00001,2023-09-28,Customer_0001,41.0,Male,Bangalore,Groceries,Spices,8,3033.43,5,23054.07,10268.33,36.26,Net Banking,4.0
+ORD00002,2024-02-18,Customer_0002,39.0,Male,Lucknow,Clothing,Shoes,6,103.82,15,529.48,230.75,105.19,Cash on Delivery,1.0
+ORD00003,2024-07-20,Customer_0003,26.0,Female,Delhi,Groceries,Snacks,4,3002.83,10,10810.19,2151.45,210.49,Debit Card,2.0
+ORD00004,2024-07-18,Customer_0004,64.0,Male,Delhi,Electronics,Laptop,2,3452.74,15,5869.66,2684.12,158.65,Cash on Delivery,3.0
+ORD00005,2024-04-21,Customer_0005,48.0,Male,Kolkata,Clothing,Jeans,2,3898.15,5,7406.48,2678.9,279.46,Cash on Delivery,
+ORD00006,2023-12-04,Customer_0006,58.0,Male,Jaipur,Electronics,Smartwatch,5,2975.08,0,14875.4,5975.05,171.95,Credit Card,4.0
+ORD00007,2024-10-09,Customer_0007,50.0,Female,Lucknow,Electronics,Tablet,8,168.99,10,1216.73,307.35,224.12,Credit Card,5.0
+ORD00008,2023-02-02,Customer_0008,44.0,Male,Bangalore,Groceries,Rice,7,1623.81,20,9093.34,2224.58,198.52,Credit Card,4.0
+ORD00009,2024-05-17,Customer_0009,49.0,Male,Hyderabad,Beauty,Lotion,7,298.12,5,1982.5,973.61,50.21,Net Banking,5.0
+ORD00010,2024-06-24,Customer_0010,59.0,Female,Pune,Beauty,Perfume,4,4719.98,10,16991.93,4363.96,266.53,Cash on Delivery,5.0
+ORD00011,2024-07-09,Customer_0011,42.0,Male,Jaipur,Groceries,Beverages,4,4473.54,10,16104.74,6224.15,54.18,UPI,4.0
+ORD00012,2023-09-16,Customer_0012,59.0,Female,Pune,Electronics,Tablet,7,906.81,10,5712.9,2021.83,82.19,Credit Card,4.0
+ORD00013,2024-05-11,Customer_0013,34.0,Other,Pune,Groceries,Rice,4,1309.69,5,4976.82,1247.72,61.46,Net Banking,4.0
+ORD00014,2024-02-07,Customer_0014,21.0,Male,Mumbai,Electronics,Mobile,2,2701.58,5,5133.0,795.73,87.78,Net Banking,2.0
+ORD00015,2023-07-17,Customer_0015,33.0,Female,Hyderabad,Groceries,Oil,6,2725.3,0,16351.8,7313.32,162.3,UPI,1.0
+ORD00016,2024-05-25,Customer_0016,56.0,Male,Jaipur,Clothing,Jacket,3,1808.46,15,4611.57,787.73,131.32,Credit Card,
+ORD00017,2024-09-02,Customer_0017,19.0,Other,Chennai,Clothing,Jeans,7,3333.92,5,22170.57,3463.95,164.66,Net Banking,
+ORD00018,2023-08-21,Customer_0018,50.0,Male,Ahmedabad,Furniture,Chair,3,3531.75,10,9535.72,1909.88,133.26,Cash on Delivery,5.0
+ORD00019,2023-04-22,Customer_0019,19.0,Female,Jaipur,Groceries,Snacks,9,3351.16,20,24128.35,9666.48,105.5,Cash on Delivery,5.0
+ORD00020,2024-02-02,Customer_0020,29.0,Female,Pune,Electronics,Tablet,5,976.23,10,4393.04,1185.4,179.13,Net Banking,4.0
+ORD00021,2023-01-27,Customer_0021,22.0,Female,Hyderabad,Furniture,Sofa,2,1815.38,0,3630.76,1082.27,157.9,UPI,3.0
+ORD00022,2023-06-21,Customer_0022,63.0,Other,Mumbai,Electronics,Mobile,5,4429.12,15,18823.76,9310.05,279.93,Cash on Delivery,
+ORD00023,2023-06-10,Customer_0023,20.0,Male,Pune,Beauty,Soap,3,930.51,0,2791.53,1010.14,256.38,Debit Card,4.0
+ORD00024,2024-01-21,Customer_0024,46.0,Male,Delhi,Furniture,Table,1,4258.48,0,4258.48,1082.21,120.66,Credit Card,4.0
+ORD00025,2024-05-20,Customer_0025,63.0,Female,Kolkata,Beauty,Makeup Kit,7,2557.43,20,14321.61,6186.99,39.86,Cash on Delivery,5.0
+ORD00026,2023-02-20,Customer_0026,39.0,Male,Pune,Clothing,Jeans,9,859.7,25,5802.98,2319.51,185.43,UPI,4.0
+ORD00027,2023-09-21,Customer_0027,62.0,Male,Bangalore,Groceries,Spices,5,1430.56,15,6079.88,1714.46,43.9,Cash on Delivery,3.0
+ORD00028,2024-09-27,Customer_0028,54.0,Male,Jaipur,Beauty,Lotion,3,3996.41,10,10790.31,3737.33,41.97,Cash on Delivery,3.0
+ORD00029,2023-02-27,Customer_0029,62.0,Female,Kolkata,Beauty,Shampoo,1,2267.53,25,1700.65,794.45,71.2,Net Banking,4.0
+ORD00030,2023-03-17,Customer_0030,64.0,Female,Hyderabad,Beauty,Perfume,3,3813.45,0,11440.35,4351.25,45.7,Net Banking,1.0
+ORD00031,2024-04-18,Customer_0031,27.0,Female,Hyderabad,Groceries,Oil,5,2420.01,0,12100.05,4082.12,201.94,Debit Card,
+ORD00032,2024-03-17,Customer_0032,19.0,Female,Hyderabad,Clothing,Jacket,1,2742.95,20,2194.36,972.04,39.76,Cash on Delivery,1.0
+ORD00033,2024-01-15,Customer_0033,18.0,Female,Delhi,Clothing,Jacket,1,2345.44,10,2110.9,449.15,195.26,Net Banking,
+ORD00034,2023-02-04,Customer_0034,,Female,Lucknow,Furniture,Table,7,448.82,20,2513.39,513.47,26.52,Net Banking,4.0
+ORD00035,2023-03-16,Customer_0035,54.0,Female,Mumbai,Clothing,Cap,8,3701.85,20,23691.84,3822.6,173.43,UPI,5.0
+ORD00036,2023-04-06,Customer_0036,40.0,Male,,Groceries,Oil,8,4348.87,20,27832.77,11592.1,210.36,Credit Card,5.0
+ORD00037,2023-12-08,Customer_0037,26.0,Female,Hyderabad,Groceries,Rice,3,2007.09,15,5118.08,841.98,257.2,UPI,4.0
+ORD00038,2023-03-10,Customer_0038,40.0,Male,Chennai,Clothing,Cap,3,3051.96,15,7782.5,2059.39,230.66,Debit Card,5.0
+ORD00039,2023-05-13,Customer_0039,26.0,Female,Pune,Clothing,Jeans,3,4449.75,10,12014.32,3039.13,291.22,Net Banking,5.0
+ORD00040,2024-09-25,Customer_0040,62.0,Female,Kolkata,Clothing,T-Shirt,2,498.61,20,797.78,333.77,182.77,Credit Card,4.0
+ORD00041,2023-03-11,Customer_0041,36.0,Female,Delhi,Beauty,Makeup Kit,3,3908.02,25,8793.04,2226.58,89.64,Cash on Delivery,3.0
+ORD00042,2024-04-20,Customer_0042,45.0,Male,Mumbai,Clothing,Shoes,8,675.88,0,5407.04,1295.13,210.69,Credit Card,
+ORD00043,2023-05-14,Customer_0043,52.0,Male,Jaipur,Electronics,Smartwatch,5,312.66,20,1250.64,190.68,40.66,Credit Card,5.0
+ORD00044,2024-07-19,Customer_0044,33.0,Male,Chennai,Electronics,Smartwatch,6,1982.59,0,11895.54,2137.16,288.44,Debit Card,5.0
+ORD00045,2023-03-31,Customer_0045,53.0,Female,Mumbai,Groceries,Beverages,8,1831.43,5,13918.87,5663.89,120.9,Credit Card,
+ORD00046,2024-04-05,Customer_0046,42.0,Female,Delhi,Electronics,Smartwatch,3,4130.43,5,11771.73,4169.27,182.73,UPI,4.0
+ORD00047,2023-04-29,Customer_0047,28.0,Male,Pune,Beauty,Soap,8,1944.67,0,15557.36,5163.03,295.88,UPI,4.0
+ORD00048,2024-04-05,Customer_0048,23.0,Female,Chennai,Furniture,Chair,1,2396.6,10,2156.94,977.42,23.83,UPI,5.0
+ORD00049,2024-07-18,Customer_0049,63.0,Male,Hyderabad,Beauty,Soap,5,3809.7,10,17143.65,7087.67,146.15,Credit Card,4.0
+ORD00050,2023-12-14,Customer_0050,29.0,Other,Jaipur,Electronics,Laptop,8,208.71,5,1586.2,504.24,236.25,Credit Card,5.0
+ORD00051,2024-07-31,Customer_0051,35.0,Male,Delhi,Beauty,Soap,3,4525.44,15,11539.87,1809.89,190.26,Cash on Delivery,4.0
+ORD00052,2023-12-01,Customer_0052,34.0,Male,Ahmedabad,Electronics,Mobile,7,2665.65,0,18659.55,3128.61,61.18,Net Banking,4.0
+ORD00053,2024-03-25,Customer_0053,57.0,Male,Bangalore,Clothing,Cap,3,2732.59,10,7377.99,3330.5,199.44,UPI,5.0
+ORD00054,2023-03-02,Customer_0054,39.0,Male,Jaipur,Beauty,Lotion,3,300.26,20,720.62,273.27,117.33,Cash on Delivery,2.0
+ORD00055,2023-03-19,Customer_0055,60.0,Male,Lucknow,Clothing,Jeans,9,552.22,0,4969.98,1288.59,163.26,Cash on Delivery,
+ORD00056,2023-09-10,Customer_0056,31.0,Female,Ahmedabad,Electronics,Mobile,4,1125.81,25,3377.43,1409.6,232.79,UPI,4.0
+ORD00057,2024-05-22,Customer_0057,54.0,Female,Mumbai,Furniture,Sofa,2,2292.32,10,4126.18,1489.52,49.36,Debit Card,3.0
+ORD00058,2023-05-25,Customer_0058,64.0,Female,Ahmedabad,Groceries,Rice,4,2422.45,5,9205.31,2060.06,159.56,Credit Card,4.0
+ORD00059,2024-07-07,Customer_0059,62.0,Female,Chennai,Groceries,Snacks,9,1753.49,15,13414.2,3674.54,179.82,Net Banking,4.0
+ORD00060,2024-03-21,Customer_0060,53.0,Female,Hyderabad,Groceries,Snacks,8,4494.15,10,32357.88,10238.71,134.91,Cash on Delivery,
+ORD00061,2024-10-07,Customer_0061,,Male,Chennai,Furniture,Bed,6,1363.72,25,6136.74,1632.22,280.23,Debit Card,4.0
+ORD00062,2023-08-13,Customer_0062,54.0,Female,Bangalore,Groceries,Snacks,4,1287.81,0,5151.24,1474.71,100.82,Credit Card,4.0
+ORD00063,2023-09-18,Customer_0063,18.0,Male,Jaipur,Clothing,Jeans,7,2789.72,5,18551.64,7182.75,246.76,UPI,3.0
+ORD00064,2024-08-03,Customer_0064,52.0,Female,Ahmedabad,Furniture,Chair,2,709.06,10,1276.31,218.99,70.75,UPI,
+ORD00065,2023-09-27,Customer_0065,21.0,Female,Delhi,Electronics,Smartwatch,3,904.9,20,2171.76,906.73,197.45,UPI,4.0
+ORD00066,2023-01-23,Customer_0066,57.0,Female,Pune,Beauty,Shampoo,1,1237.84,0,1237.84,449.31,168.92,UPI,3.0
+ORD00067,2024-03-23,Customer_0067,44.0,Male,Mumbai,Furniture,Table,4,3990.72,20,12770.3,4170.8,227.61,Net Banking,5.0
+ORD00068,2023-10-16,Customer_0068,55.0,Male,,Beauty,Perfume,4,2892.46,5,10991.35,3595.34,231.3,Cash on Delivery,4.0
+ORD00069,2023-06-06,Customer_0069,53.0,Male,Chennai,Beauty,Soap,4,3639.04,5,13828.35,6855.11,187.56,Cash on Delivery,4.0
+ORD00070,2024-07-03,Customer_0070,30.0,Male,Mumbai,Furniture,Table,6,2064.17,5,11765.77,1981.95,62.94,Cash on Delivery,3.0
+ORD00071,2023-12-22,Customer_0071,45.0,Male,Bangalore,Furniture,Bed,4,3971.41,20,12708.51,3208.47,62.71,Net Banking,4.0
+ORD00072,2024-02-11,Customer_0072,40.0,Female,Kolkata,Electronics,Headphones,1,654.87,20,523.9,231.6,72.17,UPI,
+ORD00073,2023-11-05,Customer_0073,42.0,Female,Kolkata,Beauty,Shampoo,9,1107.34,0,9966.06,4966.87,113.38,Debit Card,5.0
+ORD00074,2023-12-13,Customer_0074,41.0,Male,,Furniture,Table,1,2976.63,10,26789.699999999997,915.26,59.44,Credit Card,4.0
+ORD00075,2023-03-04,Customer_0075,37.0,Female,Pune,Electronics,Smartwatch,6,1178.48,5,6717.34,1798.65,69.85,Cash on Delivery,4.0
+ORD00076,2023-11-23,Customer_0076,36.0,Male,Mumbai,Beauty,Shampoo,1,1618.69,25,1214.02,288.35,78.77,Net Banking,4.0
+ORD00077,2023-01-18,Customer_0077,47.0,Male,Mumbai,Beauty,Perfume,1,3900.09,5,3705.09,1172.53,143.41,Net Banking,4.0
+ORD00078,2024-04-02,Customer_0078,49.0,Female,Mumbai,Furniture,Table,3,3255.6,15,8301.78,1824.21,294.1,Credit Card,5.0
+ORD00079,2023-11-24,Customer_0079,64.0,Female,Ahmedabad,Furniture,Sofa,6,1762.43,20,8459.66,3701.18,202.77,UPI,5.0
+ORD00080,2023-06-14,Customer_0080,40.0,Male,Bangalore,Groceries,Beverages,6,1104.42,5,6295.19,3118.95,43.94,Cash on Delivery,5.0
+ORD00081,2023-03-23,Customer_0081,19.0,Male,Hyderabad,Beauty,Makeup Kit,2,4562.06,20,7299.3,2776.39,92.64,Net Banking,4.0
+ORD00082,2023-08-14,Customer_0082,34.0,Female,Kolkata,Beauty,Shampoo,5,1542.88,15,6557.24,1042.0,238.33,Credit Card,5.0
+ORD00083,2023-07-28,Customer_0083,39.0,Other,Lucknow,Clothing,Jacket,9,2754.01,20,19828.87,7120.7,81.05,Net Banking,5.0
+ORD00084,2023-03-16,Customer_0084,51.0,Female,Lucknow,Beauty,Lotion,6,4580.06,20,21984.29,4720.71,159.47,Cash on Delivery,4.0
+ORD00085,2023-12-08,Customer_0085,62.0,Male,Mumbai,Beauty,Lotion,5,1392.05,25,5220.19,1272.35,90.2,Debit Card,5.0
+ORD00086,2024-09-25,Customer_0086,43.0,Female,Hyderabad,Beauty,Makeup Kit,2,914.79,10,1646.62,717.05,45.29,Credit Card,2.0
+ORD00087,2023-11-06,Customer_0087,53.0,Male,Hyderabad,Furniture,Sofa,2,2043.58,25,3065.37,1387.84,155.45,UPI,4.0
+ORD00088,2023-12-31,Customer_0088,34.0,Female,Ahmedabad,Electronics,Headphones,2,3154.33,5,5993.23,2773.01,41.04,Debit Card,4.0
+ORD00089,2023-05-11,Customer_0089,29.0,Male,Mumbai,Electronics,Headphones,2,4017.14,15,6829.14,1101.58,21.47,Net Banking,4.0
+ORD00090,2024-07-22,Customer_0090,25.0,Female,Chennai,Electronics,Laptop,7,2654.37,15,15793.5,4901.27,264.42,Credit Card,5.0
+ORD00091,2023-09-25,Customer_0091,43.0,Female,Chennai,Clothing,T-Shirt,9,4725.89,5,40406.36,11883.82,299.82,Credit Card,4.0
+ORD00092,2024-04-21,Customer_0092,59.0,Female,Ahmedabad,Furniture,Table,2,3750.82,15,6376.39,1303.38,109.35,UPI,5.0
+ORD00093,2023-04-08,Customer_0093,32.0,Female,Pune,Groceries,Beverages,3,3511.82,5,10008.69,2465.46,38.3,Credit Card,5.0
+ORD00094,2023-06-10,Customer_0094,30.0,Female,Bangalore,Beauty,Lotion,2,219.56,5,417.16,63.98,20.07,UPI,4.0
+ORD00095,2024-04-21,Customer_0095,42.0,Female,Mumbai,Groceries,Spices,5,2450.93,15,10416.45,1620.5,235.12,Credit Card,4.0
+ORD00096,2023-05-22,Customer_0096,18.0,Male,Mumbai,Furniture,Bookshelf,8,1507.47,15,10250.8,2558.15,184.95,Credit Card,
+ORD00097,2023-07-06,Customer_0097,63.0,Female,Delhi,Groceries,Beverages,5,3953.09,10,17788.91,5230.05,295.05,Credit Card,5.0
+ORD00098,2024-07-24,Customer_0098,27.0,Male,,Groceries,Beverages,8,4719.39,25,28316.34,8135.06,163.55,Credit Card,1.0
+ORD00099,2024-05-31,Customer_0099,59.0,Female,Mumbai,Clothing,Jacket,5,3185.91,0,15929.55,5075.3,187.24,UPI,4.0
+ORD00100,2023-04-30,Customer_0100,20.0,Male,Bangalore,Furniture,Bookshelf,9,3005.41,25,20286.52,4036.12,148.08,Credit Card,4.0
+ORD00101,2023-06-19,Customer_0101,41.0,Male,Chennai,Clothing,Shoes,9,1712.35,0,15411.15,4734.3,44.36,Debit Card,4.0
+ORD00102,2023-11-12,Customer_0102,46.0,Female,Ahmedabad,Clothing,Cap,5,4958.23,5,23551.59,7694.27,154.56,Debit Card,
+ORD00103,2023-10-16,Customer_0103,58.0,Male,Chennai,Furniture,Bookshelf,6,2654.18,15,13536.32,2738.35,262.84,Debit Card,4.0
+ORD00104,2024-02-26,Customer_0104,40.0,Female,Chennai,Groceries,Snacks,7,4420.02,20,24752.11,4823.07,28.19,Debit Card,1.0
+ORD00105,2024-08-11,Customer_0105,34.0,Male,Ahmedabad,Groceries,Oil,7,1046.35,20,5859.56,1664.56,294.73,Net Banking,3.0
+ORD00106,2024-02-18,Customer_0106,47.0,Female,Hyderabad,Furniture,Sofa,7,2752.21,5,18302.2,6961.15,197.13,Cash on Delivery,5.0
+ORD00107,2023-07-11,Customer_0107,43.0,Female,Hyderabad,Clothing,Shoes,1,3877.82,0,3877.82,1148.77,116.85,UPI,2.0
+ORD00108,2024-01-16,Customer_0108,28.0,Male,Delhi,Furniture,Bed,7,421.57,0,2950.99,1141.26,156.82,Net Banking,5.0
+ORD00109,2023-04-09,Customer_0109,19.0,Male,Bangalore,Groceries,Rice,9,901.76,20,6492.67,1669.99,81.82,Credit Card,5.0
+ORD00110,2023-01-21,Customer_0110,18.0,Female,Delhi,Groceries,Beverages,5,3228.78,25,12107.92,2832.85,143.84,Net Banking,4.0
+ORD00111,2024-06-07,Customer_0111,34.0,Male,Delhi,Furniture,Chair,2,4335.36,10,7803.65,1257.42,71.95,Cash on Delivery,2.0
+ORD00112,2024-11-23,Customer_0112,47.0,Male,Hyderabad,Furniture,Bookshelf,8,4612.15,10,33207.48,14448.22,149.39,Cash on Delivery,3.0
+ORD00113,2024-05-15,Customer_0113,38.0,Male,Pune,Electronics,Mobile,5,2992.29,10,13465.3,2093.54,61.88,UPI,2.0
+ORD00114,2023-04-12,Customer_0114,29.0,Male,Pune,Beauty,Shampoo,9,294.13,25,1985.38,472.11,60.86,Cash on Delivery,
+ORD00115,2023-08-30,Customer_0115,30.0,Male,Delhi,Groceries,Rice,1,2636.79,0,2636.79,503.93,43.1,Debit Card,2.0
+ORD00116,2023-05-23,Customer_0116,20.0,Female,Jaipur,Clothing,Jeans,2,301.8,15,513.06,237.75,198.2,Credit Card,5.0
+ORD00117,2023-09-21,Customer_0117,24.0,Female,Pune,Clothing,Shoes,8,3599.03,25,21594.18,4876.01,191.43,Debit Card,5.0
+ORD00118,2023-05-07,Customer_0118,40.0,Male,Bangalore,Clothing,Jacket,9,903.6,25,6099.3,2875.39,36.9,Debit Card,5.0
+ORD00119,2024-11-15,Customer_0119,35.0,Female,Chennai,Furniture,Bed,8,4371.98,20,27980.67,7539.46,159.49,Credit Card,1.0
+ORD00120,2023-02-04,Customer_0120,38.0,Female,Hyderabad,Furniture,Sofa,6,250.2,0,1501.2,309.01,68.77,Net Banking,5.0
+ORD00121,2023-12-30,Customer_0121,53.0,Male,Hyderabad,Groceries,Beverages,4,2573.74,5,9780.21,1922.19,182.03,Debit Card,1.0
+ORD00122,2023-10-22,Customer_0122,35.0,Female,Bangalore,Clothing,Shoes,3,3002.52,25,6755.67,2528.63,127.48,Debit Card,5.0
+ORD00123,2024-06-09,Customer_0123,64.0,Female,Hyderabad,Groceries,Oil,2,986.79,20,1578.86,751.23,142.41,Debit Card,4.0
+ORD00124,2023-01-28,Customer_0124,53.0,Male,Lucknow,Electronics,Headphones,2,4304.13,20,6886.61,2659.49,236.57,UPI,
+ORD00125,2023-12-27,Customer_0125,37.0,Female,Chennai,Clothing,Cap,1,2302.23,10,2072.01,348.09,90.71,Cash on Delivery,4.0
+ORD00126,2024-05-11,Customer_0126,37.0,Male,Chennai,Beauty,Shampoo,8,4047.78,15,27524.9,5436.84,176.28,Cash on Delivery,4.0
+ORD00127,2023-01-01,Customer_0127,31.0,Male,Delhi,Clothing,Cap,7,1201.04,20,6725.82,1164.53,108.52,UPI,5.0
+ORD00128,2023-08-05,Customer_0128,37.0,Male,Hyderabad,Furniture,Table,2,4868.18,10,8762.72,2882.09,206.72,Debit Card,3.0
+ORD00129,2024-01-10,Customer_0129,55.0,Male,Delhi,Clothing,Shoes,8,4852.57,0,38820.56,9480.36,63.73,Credit Card,5.0
+ORD00130,2024-02-18,Customer_0130,29.0,Female,Hyderabad,Clothing,Jacket,2,1296.32,5,2463.01,482.46,179.77,Credit Card,3.0
+ORD00131,2023-10-14,Customer_0131,23.0,Female,Jaipur,Electronics,Headphones,5,3368.16,0,16840.8,7792.11,204.2,Net Banking,4.0
+ORD00132,2024-08-11,Customer_0132,55.0,Female,Jaipur,Electronics,Smartwatch,9,634.64,5,5426.17,1945.56,111.57,UPI,4.0
+ORD00133,2024-10-02,Customer_0133,24.0,Male,Jaipur,Beauty,Perfume,8,1554.66,0,12437.28,4789.18,196.46,Credit Card,4.0
+ORD00134,2023-10-18,Customer_0134,19.0,Male,Lucknow,Electronics,Mobile,6,458.66,10,2476.76,1092.36,199.92,Debit Card,4.0
+ORD00135,2023-08-09,Customer_0135,53.0,Female,Pune,Groceries,Spices,9,1962.96,5,16783.31,5298.18,88.9,Debit Card,5.0
+ORD00136,2024-03-02,Customer_0136,28.0,Male,Pune,Groceries,Snacks,5,1059.31,20,4237.24,786.81,88.18,UPI,4.0
+ORD00137,2024-01-08,Customer_0137,33.0,Female,Delhi,Clothing,Cap,4,3383.47,20,10827.1,2370.5,170.97,Credit Card,2.0
+ORD00138,2023-03-31,Customer_0138,24.0,Female,Lucknow,Beauty,Makeup Kit,9,2660.16,15,20350.22,8882.8,167.05,Cash on Delivery,4.0
+ORD00139,2024-01-20,Customer_0139,,Male,Jaipur,Groceries,Beverages,8,2679.85,10,19294.92,9630.01,198.64,Debit Card,5.0
+ORD00140,2024-09-28,Customer_0140,41.0,Male,Lucknow,Clothing,T-Shirt,8,3872.73,0,30981.84,12922.38,238.55,Credit Card,5.0
+ORD00141,2024-11-06,Customer_0141,51.0,Female,Pune,Clothing,Jacket,1,2177.33,20,1741.86,768.5,226.32,Net Banking,4.0
+ORD00142,2024-03-30,Customer_0142,52.0,Female,Lucknow,Furniture,Bed,9,2015.44,20,145111.7,6958.7,59.7,Net Banking,4.0
+ORD00143,2024-04-03,Customer_0143,59.0,Female,Hyderabad,Electronics,Mobile,7,1771.34,25,9299.54,4310.91,222.81,Net Banking,
+ORD00144,2023-03-14,Customer_0144,19.0,Male,Chennai,Electronics,Tablet,8,1898.08,25,11388.48,4279.24,39.44,Debit Card,5.0
+ORD00145,2024-01-16,Customer_0145,34.0,Male,Hyderabad,Furniture,Bed,3,1032.59,5,2942.88,447.47,205.31,Cash on Delivery,
+ORD00146,2024-03-28,Customer_0146,33.0,Male,Ahmedabad,Clothing,Shoes,9,935.34,5,7997.16,3727.98,146.1,Cash on Delivery,1.0
+ORD00147,2023-10-06,Customer_0147,18.0,Female,Pune,Furniture,Bookshelf,3,846.84,20,2032.42,491.82,235.21,Debit Card,5.0
+ORD00148,2024-04-04,Customer_0148,62.0,Male,Jaipur,Electronics,Smartwatch,6,880.59,20,4226.83,2059.92,104.88,Credit Card,4.0
+ORD00149,2023-06-29,Customer_0149,60.0,Female,Hyderabad,Electronics,Headphones,7,4717.7,5,31372.7,10023.96,277.43,Debit Card,4.0
+ORD00150,2023-02-11,Customer_0150,31.0,Female,Hyderabad,Groceries,Rice,6,4105.5,10,22169.7,5852.66,169.09,Credit Card,5.0
+ORD00151,2024-07-31,Customer_0151,42.0,Male,Mumbai,Beauty,Perfume,2,1195.71,25,1793.56,284.34,199.47,Cash on Delivery,4.0
+ORD00152,2024-03-11,Customer_0152,,Female,Hyderabad,Electronics,Smartwatch,3,4768.71,25,10729.6,4815.11,122.91,Net Banking,4.0
+ORD00153,2023-05-08,Customer_0153,60.0,Female,Bangalore,Groceries,Beverages,4,2253.61,15,7662.27,1547.72,20.09,UPI,5.0
+ORD00154,2023-12-11,Customer_0154,26.0,Male,Chennai,Beauty,Perfume,2,2474.55,5,4701.65,2255.74,214.61,Credit Card,4.0
+ORD00155,2023-09-20,Customer_0155,46.0,Female,Kolkata,Groceries,Snacks,1,2596.17,0,2596.17,1086.69,81.82,Debit Card,5.0
+ORD00156,2024-07-27,Customer_0156,39.0,Male,Chennai,Beauty,Makeup Kit,3,1902.02,15,4850.15,1607.47,69.53,Net Banking,
+ORD00157,2024-02-27,Customer_0157,35.0,Male,Mumbai,Clothing,Jeans,5,1154.49,20,4617.96,960.51,196.2,UPI,2.0
+ORD00158,2024-01-30,Customer_0158,35.0,Male,Hyderabad,Electronics,Tablet,5,4237.35,20,16949.4,5578.31,62.01,Net Banking,4.0
+ORD00159,2024-07-07,Customer_0159,19.0,Male,Lucknow,Clothing,Cap,1,4781.14,0,4781.14,1288.32,283.99,Debit Card,4.0
+ORD00160,2023-08-20,Customer_0160,32.0,Male,Bangalore,Clothing,Shoes,5,4143.15,5,19679.96,7178.81,146.03,Net Banking,5.0
+ORD00161,2023-03-28,Customer_0161,41.0,Male,Hyderabad,Groceries,Rice,5,334.37,0,1671.85,399.28,204.53,Net Banking,3.0
+ORD00162,2024-10-12,Customer_0162,22.0,Female,Ahmedabad,Clothing,Shoes,4,3895.8,10,14024.88,6103.37,68.75,Debit Card,4.0
+ORD00163,2023-08-11,Customer_0163,20.0,Female,Jaipur,Groceries,Rice,8,3869.19,0,30953.52,4903.14,206.86,Credit Card,3.0
+ORD00164,2023-04-29,Customer_0164,30.0,Female,Delhi,Electronics,Laptop,2,1678.86,15,2854.06,1134.52,294.39,UPI,4.0
+ORD00165,2024-02-06,Customer_0165,39.0,Female,Bangalore,Clothing,T-Shirt,7,565.56,10,3563.03,1095.52,128.82,Credit Card,4.0
+ORD00166,2023-05-02,Customer_0166,30.0,Other,Ahmedabad,Beauty,Perfume,7,4408.42,15,26230.1,4678.81,90.63,Cash on Delivery,3.0
+ORD00167,2023-12-11,Customer_0167,32.0,Other,Bangalore,Furniture,Sofa,6,2743.83,20,13170.38,5825.45,56.88,Cash on Delivery,2.0
+ORD00168,2024-02-25,Customer_0168,56.0,Female,Chennai,Beauty,Perfume,1,2590.97,25,1943.23,587.33,212.89,Debit Card,4.0
+ORD00169,2023-09-18,Customer_0169,60.0,Female,Kolkata,Clothing,T-Shirt,3,4959.87,10,13391.65,4813.99,244.02,UPI,4.0
+ORD00170,2023-04-22,Customer_0170,29.0,Male,Delhi,Furniture,Table,9,2815.71,25,19006.04,3861.71,255.19,Net Banking,5.0
+ORD00171,2024-08-09,Customer_0171,21.0,Female,Lucknow,Electronics,Tablet,3,4225.65,25,9507.71,1836.63,298.97,UPI,4.0
+ORD00172,2024-04-13,Customer_0172,62.0,Female,Hyderabad,Clothing,Cap,6,3508.53,20,16840.94,8249.11,66.73,Net Banking,2.0
+ORD00173,2023-12-02,Customer_0173,36.0,Female,Mumbai,Furniture,Bookshelf,7,3544.42,25,18608.21,6134.96,187.82,UPI,4.0
+ORD00174,2024-06-25,Customer_0174,53.0,Female,Mumbai,Beauty,Makeup Kit,6,1128.23,15,5753.97,1835.26,143.26,Debit Card,3.0
+ORD00175,2024-04-20,Customer_0175,37.0,Male,Pune,Groceries,Rice,9,4672.26,20,33640.27,14777.56,198.51,Cash on Delivery,5.0
+ORD00176,2024-08-24,Customer_0176,60.0,Female,Pune,Furniture,Chair,5,1003.93,20,4015.72,630.96,66.28,Credit Card,1.0
+ORD00177,2024-07-16,Customer_0177,46.0,Female,Chennai,Furniture,Bookshelf,5,375.07,10,1687.82,590.1,264.36,Debit Card,4.0
+ORD00178,2024-08-04,Customer_0178,53.0,Male,Jaipur,Beauty,Makeup Kit,4,344.23,5,1308.07,237.69,238.46,Cash on Delivery,5.0
+ORD00179,2024-02-12,Customer_0179,27.0,Female,Lucknow,Electronics,Tablet,6,1382.36,10,7464.74,3012.29,240.4,Credit Card,4.0
+ORD00180,2023-08-16,Customer_0180,21.0,Female,Pune,Beauty,Makeup Kit,8,327.85,5,2491.66,455.34,58.99,Debit Card,4.0
+ORD00181,2024-04-16,Customer_0181,54.0,Male,Bangalore,Furniture,Bed,7,2027.89,5,13485.47,4766.07,92.84,Debit Card,
+ORD00182,2024-01-06,Customer_0182,21.0,Male,Pune,Beauty,Shampoo,9,4740.48,15,36264.67,13696.18,51.95,Credit Card,4.0
+ORD00183,2024-07-26,Customer_0183,,Male,Delhi,Electronics,Smartwatch,2,2079.49,10,3743.08,1782.89,218.19,Credit Card,5.0
+ORD00184,2024-05-31,Customer_0184,56.0,Male,Ahmedabad,Clothing,Cap,2,3354.52,0,6709.04,1783.55,149.44,Cash on Delivery,4.0
+ORD00185,2024-09-02,Customer_0185,63.0,Male,Ahmedabad,Furniture,Table,3,3952.76,20,9486.62,4196.43,112.46,Net Banking,5.0
+ORD00186,2024-01-16,Customer_0186,42.0,Male,Mumbai,Groceries,Beverages,9,2844.89,15,21763.41,5001.14,27.61,Debit Card,2.0
+ORD00187,2024-11-09,Customer_0187,28.0,Female,Ahmedabad,Groceries,Snacks,4,2313.31,10,8327.92,3055.12,237.17,Cash on Delivery,3.0
+ORD00188,2023-06-13,Customer_0188,57.0,Male,Pune,Groceries,Rice,5,3209.45,0,16047.25,5799.64,276.23,Cash on Delivery,4.0
+ORD00189,2023-09-16,Customer_0189,25.0,Female,Chennai,Clothing,Jacket,2,927.39,25,1391.08,627.03,76.56,Cash on Delivery,5.0
+ORD00190,2024-06-07,Customer_0190,30.0,Other,Lucknow,Furniture,Chair,7,4838.92,20,27097.95,4215.39,207.02,UPI,4.0
+ORD00191,2024-06-20,Customer_0191,22.0,Male,Jaipur,Furniture,Bookshelf,3,2684.26,0,8052.78,1706.9,78.73,Cash on Delivery,
+ORD00192,2024-07-25,Customer_0192,51.0,Female,Lucknow,Clothing,Jacket,9,2408.72,15,18426.71,6251.39,120.18,Net Banking,5.0
+ORD00193,2023-07-09,Customer_0193,35.0,Female,Pune,Groceries,Oil,1,1275.38,15,1084.07,198.52,227.11,Credit Card,5.0
+ORD00194,2024-10-12,Customer_0194,57.0,Female,Pune,Beauty,Makeup Kit,3,252.47,20,605.93,159.56,111.03,Credit Card,1.0
+ORD00195,2023-01-01,Customer_0195,55.0,Male,Jaipur,Groceries,Beverages,8,456.09,10,3283.85,844.1,163.54,Net Banking,4.0
+ORD00196,2024-10-15,Customer_0196,35.0,Female,Kolkata,Beauty,Makeup Kit,4,4368.9,0,17475.6,3915.29,206.2,UPI,5.0
+ORD00197,2024-07-11,Customer_0197,47.0,Male,Mumbai,Furniture,Table,6,1210.98,20,5812.7,1794.22,126.51,Credit Card,5.0
+ORD00198,2023-03-24,Customer_0198,,Female,Kolkata,Clothing,T-Shirt,3,4147.59,10,11198.49,2444.44,25.04,Credit Card,5.0
+ORD00199,2024-02-02,Customer_0199,26.0,Male,Jaipur,Groceries,Snacks,8,3548.06,20,22707.58,10810.64,93.73,UPI,1.0
+ORD00200,2023-11-30,Customer_0200,63.0,Other,Kolkata,Beauty,Perfume,9,335.9,15,2569.63,495.85,265.63,Net Banking,4.0
+ORD00201,2023-02-04,Customer_0201,20.0,Female,Jaipur,Electronics,Tablet,2,2909.41,20,4655.06,2223.84,252.78,Net Banking,4.0
+ORD00202,2023-02-04,Customer_0202,57.0,Male,Jaipur,Electronics,Tablet,1,416.97,0,416.97,204.82,214.45,UPI,4.0
+ORD00203,2024-08-27,Customer_0203,21.0,Male,Hyderabad,Clothing,Shoes,6,3074.74,10,16603.6,5714.36,240.86,Cash on Delivery,5.0
+ORD00204,2024-05-06,Customer_0204,40.0,Female,Delhi,Beauty,Perfume,2,1430.69,10,2575.24,617.39,161.75,Credit Card,4.0
+ORD00205,2023-09-19,Customer_0205,52.0,Female,Hyderabad,Beauty,Makeup Kit,8,1270.4,5,9655.04,1544.45,112.78,Credit Card,3.0
+ORD00206,2023-02-18,Customer_0206,56.0,Female,Lucknow,Beauty,Soap,1,1173.44,10,1056.1,216.11,99.77,UPI,5.0
+ORD00207,2023-12-10,Customer_0207,56.0,Male,Bangalore,Electronics,Mobile,5,1494.36,0,7471.8,3438.2,116.66,UPI,4.0
+ORD00208,2023-01-01,Customer_0208,62.0,Male,Lucknow,Beauty,Soap,8,2166.96,15,14735.33,2817.54,207.86,Cash on Delivery,5.0
+ORD00209,2024-06-03,Customer_0209,64.0,Male,Hyderabad,Clothing,Cap,9,3218.37,25,21724.0,8903.31,36.67,Credit Card,5.0
+ORD00210,2024-04-29,Customer_0210,32.0,Male,Jaipur,Groceries,Oil,3,3021.98,15,7706.05,1424.75,133.19,Debit Card,5.0
+ORD00211,2023-09-23,Customer_0211,37.0,Female,Pune,Clothing,Jacket,2,780.47,0,1560.94,445.8,264.64,UPI,5.0
+ORD00212,2023-09-25,Customer_0212,48.0,Female,Pune,Clothing,T-Shirt,3,2299.38,20,5518.51,1987.88,274.84,Cash on Delivery,4.0
+ORD00213,2024-10-19,Customer_0213,61.0,Female,Jaipur,Beauty,Perfume,4,3397.54,0,13590.16,5338.08,240.92,UPI,5.0
+ORD00214,2023-04-28,Customer_0214,21.0,Female,Hyderabad,Clothing,Jacket,4,2025.57,5,7697.17,3399.06,140.55,UPI,1.0
+ORD00215,2024-03-19,Customer_0215,28.0,Female,Chennai,Beauty,Lotion,2,3220.82,10,5797.48,2115.76,241.68,Debit Card,4.0
+ORD00216,2024-04-30,Customer_0216,41.0,Other,Hyderabad,Groceries,Beverages,1,615.77,0,615.77,277.59,155.97,Debit Card,4.0
+ORD00217,2024-03-23,Customer_0217,59.0,Male,Lucknow,Furniture,Sofa,3,214.43,10,578.96,259.68,156.6,Cash on Delivery,
+ORD00218,2023-03-28,Customer_0218,64.0,Male,Pune,Beauty,Perfume,6,3054.42,15,15577.54,4815.28,44.7,Cash on Delivery,3.0
+ORD00219,2024-05-03,Customer_0219,20.0,Male,Bangalore,Beauty,Soap,1,2708.06,20,2166.45,505.51,253.42,Debit Card,4.0
+ORD00220,2024-01-18,Customer_0220,41.0,Male,Delhi,Electronics,Smartwatch,5,4835.45,15,20550.66,7777.46,182.53,UPI,
+ORD00221,2024-05-23,Customer_0221,36.0,Male,Chennai,Groceries,Snacks,1,3699.43,5,3514.46,990.4,179.43,Credit Card,3.0
+ORD00222,2024-10-20,Customer_0222,38.0,Female,Chennai,Beauty,Makeup Kit,5,3035.69,25,11383.84,3566.72,263.59,Credit Card,5.0
+ORD00223,2024-07-11,Customer_0223,,Male,Hyderabad,Groceries,Rice,6,829.1,10,4477.14,1434.85,46.23,UPI,4.0
+ORD00224,2024-05-13,Customer_0224,64.0,Female,Bangalore,Electronics,Headphones,2,3656.01,20,5849.62,916.88,134.12,Credit Card,5.0
+ORD00225,2023-12-03,Customer_0225,22.0,Female,Kolkata,Groceries,Spices,1,1562.33,10,1406.1,549.55,91.69,Debit Card,4.0
+ORD00226,2024-07-19,Customer_0226,47.0,Male,Bangalore,Beauty,Perfume,5,1857.71,5,8824.12,3382.35,225.25,Debit Card,
+ORD00227,2024-05-02,Customer_0227,18.0,Male,Ahmedabad,Clothing,T-Shirt,7,111.36,10,701.57,169.6,253.56,Net Banking,2.0
+ORD00228,2023-05-07,Customer_0228,51.0,Male,Pune,Groceries,Rice,1,4245.02,5,4032.77,1869.02,131.75,UPI,2.0
+ORD00229,2023-07-07,Customer_0229,57.0,Female,Pune,Furniture,Sofa,2,129.83,10,233.69,74.1,103.88,Cash on Delivery,3.0
+ORD00230,2024-04-18,Customer_0230,40.0,Male,Pune,Clothing,Jeans,8,1546.92,15,10519.06,2080.77,132.37,Net Banking,
+ORD00231,2023-08-21,Customer_0231,39.0,Female,Lucknow,Beauty,Shampoo,5,264.98,10,1192.41,446.87,201.39,Debit Card,3.0
+ORD00232,2024-10-21,Customer_0232,32.0,Female,Kolkata,Groceries,Beverages,2,1285.47,15,2185.3,913.17,104.89,Debit Card,4.0
+ORD00233,2023-12-20,Customer_0233,43.0,Female,Mumbai,Groceries,Oil,9,3768.36,0,33915.24,16956.02,163.12,Debit Card,5.0
+ORD00234,2023-06-06,Customer_0234,21.0,Female,Bangalore,Electronics,Smartwatch,9,1865.15,10,15107.72,4566.39,262.63,Credit Card,5.0
+ORD00235,2024-02-25,Customer_0235,42.0,Male,Kolkata,Groceries,Snacks,1,3466.39,5,3293.07,995.76,280.45,Net Banking,5.0
+ORD00236,2023-01-13,Customer_0236,42.0,Male,,Beauty,Perfume,5,4833.63,15,20542.93,9339.63,209.31,UPI,4.0
+ORD00237,2023-04-11,Customer_0237,35.0,Female,Jaipur,Groceries,Spices,6,4788.32,15,24420.43,4809.92,153.27,Cash on Delivery,5.0
+ORD00238,2023-07-29,Customer_0238,28.0,Female,Hyderabad,Electronics,Smartwatch,5,4128.68,5,19611.23,8350.5,204.06,Net Banking,5.0
+ORD00239,2023-06-11,Customer_0239,61.0,Female,Pune,Beauty,Soap,9,769.34,15,5885.45,1421.28,108.38,Credit Card,2.0
+ORD00240,2023-09-09,Customer_0240,61.0,Female,Chennai,Groceries,Spices,3,3367.65,0,10102.95,4657.16,164.44,Debit Card,2.0
+ORD00241,2024-02-02,Customer_0241,41.0,Female,Lucknow,Electronics,Tablet,3,2515.04,25,5658.84,1777.85,186.64,Cash on Delivery,5.0
+ORD00242,2023-04-29,Customer_0242,59.0,Female,Delhi,Clothing,T-Shirt,1,2654.35,5,2521.63,504.34,181.1,Net Banking,5.0
+ORD00243,2023-02-02,Customer_0243,33.0,Female,Kolkata,Beauty,Shampoo,7,2638.01,15,15696.16,4321.92,179.78,Cash on Delivery,4.0
+ORD00244,2023-06-09,Customer_0244,21.0,Female,Delhi,Furniture,Chair,8,3937.67,0,31501.36,12540.68,77.99,Debit Card,5.0
+ORD00245,2023-03-20,Customer_0245,22.0,Female,Pune,Groceries,Spices,7,3391.05,15,20176.75,3324.6,283.96,Credit Card,4.0
+ORD00246,2023-03-31,Customer_0246,36.0,Female,Ahmedabad,Electronics,Headphones,7,789.93,5,5253.03,1068.9,108.24,Cash on Delivery,3.0
+ORD00247,2024-05-05,Customer_0247,64.0,Female,Lucknow,Groceries,Snacks,1,1791.44,15,1522.72,581.57,222.99,Credit Card,2.0
+ORD00248,2024-08-18,Customer_0248,51.0,Female,Chennai,Clothing,Cap,4,1228.23,25,3684.69,1306.32,104.54,Net Banking,3.0
+ORD00249,2023-10-29,Customer_0249,61.0,Other,Delhi,Clothing,Jeans,3,912.17,20,2189.21,725.8,271.35,UPI,5.0
+ORD00250,2024-08-04,Customer_0250,43.0,Male,Chennai,Groceries,Beverages,9,1064.94,10,8626.01,2808.78,133.87,Credit Card,4.0
+ORD00251,2023-11-07,Customer_0251,46.0,Female,Chennai,Clothing,Jacket,6,3149.48,5,17952.04,8886.86,252.23,Debit Card,
+ORD00252,2023-12-28,Customer_0252,56.0,Other,Delhi,Clothing,Cap,8,3888.14,15,26439.35,10930.84,199.37,Net Banking,5.0
+ORD00253,2024-02-25,Customer_0253,41.0,Male,Kolkata,Groceries,Rice,4,1849.44,15,6288.1,2640.77,197.62,UPI,5.0
+ORD00254,2023-12-15,Customer_0254,44.0,Female,Jaipur,Beauty,Perfume,3,4483.75,20,10761.0,4934.18,100.89,Net Banking,
+ORD00255,2024-02-08,Customer_0255,31.0,Other,Hyderabad,Electronics,Headphones,5,259.83,10,1169.23,195.47,181.59,Net Banking,5.0
+ORD00256,2023-11-20,Customer_0256,40.0,Male,Jaipur,Furniture,Table,1,1277.95,5,1214.05,234.22,292.82,Net Banking,4.0
+ORD00257,2024-02-05,Customer_0257,28.0,Male,Lucknow,Clothing,T-Shirt,6,4347.17,20,20866.42,8790.78,140.79,UPI,4.0
+ORD00258,2024-11-30,Customer_0258,21.0,Female,Delhi,Furniture,Bookshelf,7,4481.06,5,29799.05,5590.44,137.45,Cash on Delivery,5.0
+ORD00259,2024-07-06,Customer_0259,21.0,Female,Mumbai,Beauty,Soap,3,3009.63,25,6771.67,2895.05,39.92,UPI,4.0
+ORD00260,2023-06-13,Customer_0260,,Male,Chennai,Furniture,Bookshelf,2,3892.14,5,7395.07,1562.76,164.38,Net Banking,1.0
+ORD00261,2024-05-23,Customer_0261,24.0,Male,Hyderabad,Electronics,Mobile,9,400.52,25,2703.51,1300.06,292.46,UPI,3.0
+ORD00262,2023-02-07,Customer_0262,47.0,Female,Bangalore,Furniture,Bed,3,3348.93,0,10046.79,2040.01,138.34,Credit Card,4.0
+ORD00263,2024-07-04,Customer_0263,48.0,Male,Delhi,Furniture,Bed,8,3836.17,25,23017.02,6750.36,205.08,Credit Card,5.0
+ORD00264,2024-04-24,Customer_0264,38.0,Female,Jaipur,Electronics,Headphones,6,1400.1,15,7140.51,1198.01,197.0,UPI,4.0
+ORD00265,2024-05-03,Customer_0265,56.0,Male,Delhi,Groceries,Rice,8,879.22,10,6330.38,1384.89,54.17,UPI,5.0
+ORD00266,2023-03-14,Customer_0266,29.0,Male,Mumbai,Electronics,Smartwatch,6,1744.49,15,8896.9,3958.55,53.28,Credit Card,5.0
+ORD00267,2023-04-10,Customer_0267,31.0,Other,Kolkata,Furniture,Table,4,1983.34,10,7140.02,1615.36,54.83,Cash on Delivery,5.0
+ORD00268,2023-06-17,Customer_0268,30.0,Female,Bangalore,Furniture,Bookshelf,3,2205.02,20,5292.05,1315.29,261.54,Cash on Delivery,
+ORD00269,2024-04-02,Customer_0269,39.0,Female,Kolkata,Furniture,Sofa,9,870.64,15,6660.4,1873.17,108.63,UPI,5.0
+ORD00270,2023-06-28,Customer_0270,28.0,Male,Pune,Clothing,Jacket,2,1312.8,15,2231.76,969.88,25.54,Credit Card,3.0
+ORD00271,2023-03-10,Customer_0271,36.0,Male,Kolkata,Beauty,Shampoo,6,1310.94,0,7865.64,3146.13,141.17,Cash on Delivery,5.0
+ORD00272,2023-03-25,Customer_0272,46.0,Male,Delhi,Electronics,Smartwatch,6,3694.09,25,16623.4,3767.72,239.88,Debit Card,3.0
+ORD00273,2024-01-27,Customer_0273,22.0,Female,Mumbai,Electronics,Mobile,1,605.29,5,575.03,264.71,133.01,UPI,3.0
+ORD00274,2024-08-05,Customer_0274,41.0,Other,Kolkata,Electronics,Tablet,3,1106.13,0,3318.39,799.54,196.6,UPI,5.0
+ORD00275,2024-07-06,Customer_0275,47.0,Female,Pune,Beauty,Makeup Kit,6,3509.41,10,18950.81,5338.88,201.58,UPI,5.0
+ORD00276,2024-04-25,Customer_0276,21.0,Male,Lucknow,Clothing,T-Shirt,6,1633.25,15,8329.57,3437.33,20.57,Net Banking,
+ORD00277,2024-07-13,Customer_0277,62.0,Male,Hyderabad,Furniture,Sofa,5,1092.9,25,4098.38,1152.38,124.6,Credit Card,4.0
+ORD00278,2023-03-24,Customer_0278,49.0,Female,Lucknow,Electronics,Tablet,1,1180.37,0,1180.37,243.24,72.79,Debit Card,3.0
+ORD00279,2024-02-23,Customer_0279,46.0,Male,Bangalore,Furniture,Table,4,3767.08,0,15068.32,5245.17,92.44,Cash on Delivery,4.0
+ORD00280,2024-01-12,Customer_0280,40.0,Female,Mumbai,Electronics,Headphones,9,1285.91,15,9837.21,4216.14,203.12,Credit Card,2.0
+ORD00281,2023-10-23,Customer_0281,47.0,Female,Pune,Beauty,Perfume,2,3690.39,5,7011.74,2040.53,186.54,UPI,
+ORD00282,2023-11-15,Customer_0282,44.0,Male,Lucknow,Groceries,Snacks,8,1081.38,5,8218.49,2631.86,90.94,Credit Card,4.0
+ORD00283,2024-01-25,Customer_0283,26.0,Female,Delhi,Electronics,Smartwatch,9,1734.67,15,13270.23,4923.82,270.7,Net Banking,1.0
+ORD00284,2023-05-03,Customer_0284,,Female,Pune,Clothing,Jacket,6,2195.25,15,11195.78,3501.38,60.43,UPI,2.0
+ORD00285,2023-07-24,Customer_0285,45.0,Female,Pune,Clothing,T-Shirt,4,2992.14,20,9574.85,3213.95,27.93,Debit Card,3.0
+ORD00286,2024-09-05,Customer_0286,38.0,Female,Hyderabad,Electronics,Mobile,6,648.22,20,3111.46,1478.96,71.98,UPI,5.0
+ORD00287,2023-03-10,Customer_0287,42.0,Male,Hyderabad,Furniture,Bed,1,1618.05,15,1375.34,474.28,174.95,Credit Card,4.0
+ORD00288,2024-07-01,Customer_0288,23.0,Female,Pune,Beauty,Soap,1,2577.61,0,2577.61,1001.37,273.0,Credit Card,4.0
+ORD00289,2023-03-28,Customer_0289,26.0,Female,Hyderabad,Beauty,Lotion,1,1789.43,10,1610.49,571.59,23.71,Net Banking,3.0
+ORD00290,2024-03-25,Customer_0290,47.0,Male,Lucknow,Electronics,Smartwatch,5,3688.77,5,17521.66,6940.76,171.58,UPI,1.0
+ORD00291,2023-04-25,Customer_0291,64.0,Male,Ahmedabad,Clothing,Jeans,4,680.23,5,2584.87,742.6,88.7,UPI,4.0
+ORD00292,2023-06-24,Customer_0292,59.0,Female,Bangalore,Beauty,Shampoo,1,2201.83,10,1981.65,519.9,135.32,Net Banking,3.0
+ORD00293,2023-04-03,Customer_0293,43.0,Male,Lucknow,Electronics,Laptop,1,2528.95,20,2023.16,772.8,60.0,Credit Card,4.0
+ORD00294,2023-04-13,Customer_0294,20.0,Female,Lucknow,Furniture,Table,5,3904.8,25,14643.0,3258.58,39.33,Cash on Delivery,4.0
+ORD00295,2023-03-14,Customer_0295,61.0,Female,Bangalore,Electronics,Tablet,8,3787.93,20,24242.75,5151.93,256.13,UPI,4.0
+ORD00296,2024-03-04,Customer_0296,19.0,Female,Jaipur,Clothing,T-Shirt,3,165.5,25,372.38,135.64,244.99,Cash on Delivery,2.0
+ORD00297,2023-02-18,Customer_0297,46.0,Male,Bangalore,Groceries,Beverages,2,1939.8,20,3103.68,477.26,84.83,UPI,4.0
+ORD00298,2024-05-21,Customer_0298,19.0,Female,Delhi,Furniture,Bed,4,322.06,10,1159.42,202.61,126.18,Net Banking,5.0
+ORD00299,2023-05-16,Customer_0299,49.0,Male,Chennai,Electronics,Tablet,9,2960.2,20,21313.44,6769.67,118.06,UPI,4.0
+ORD00300,2024-07-24,Customer_0300,,Female,Lucknow,Groceries,Spices,7,3346.17,15,19909.71,7231.92,64.43,Cash on Delivery,5.0
+ORD00301,2024-04-14,Customer_0301,19.0,Female,Mumbai,Clothing,Cap,6,1992.44,10,10759.18,4681.53,187.94,Debit Card,4.0
+ORD00302,2024-01-31,Customer_0302,55.0,Female,Bangalore,Clothing,Jeans,3,4126.97,5,11761.86,1935.13,140.7,Net Banking,4.0
+ORD00303,2023-06-05,Customer_0303,27.0,Female,Hyderabad,Electronics,Smartwatch,5,3503.74,20,14014.96,3795.98,250.65,Cash on Delivery,5.0
+ORD00304,2023-12-06,Customer_0304,38.0,Female,Ahmedabad,Clothing,Cap,1,2218.5,0,2218.5,748.97,93.92,Debit Card,5.0
+ORD00305,2024-05-18,Customer_0305,28.0,Female,Pune,Electronics,Headphones,8,3707.52,20,23728.13,5009.12,256.56,UPI,5.0
+ORD00306,2023-10-26,Customer_0306,30.0,Male,Chennai,Groceries,Beverages,3,4988.38,10,13468.63,4041.84,105.13,UPI,3.0
+ORD00307,2023-10-31,Customer_0307,49.0,Male,Lucknow,Furniture,Bed,5,1236.89,25,4638.34,2291.33,276.65,UPI,4.0
+ORD00308,2023-05-05,Customer_0308,19.0,Male,Hyderabad,Furniture,Bookshelf,3,2946.66,20,7071.98,1956.02,225.24,UPI,5.0
+ORD00309,2024-11-25,Customer_0309,21.0,Male,Pune,Furniture,Table,5,3202.06,20,12808.24,1940.82,294.71,Credit Card,5.0
+ORD00310,2023-07-08,Customer_0310,38.0,Male,Jaipur,Furniture,Sofa,2,1875.91,25,2813.86,1039.46,283.67,Credit Card,5.0
+ORD00311,2023-03-05,Customer_0311,34.0,Male,Hyderabad,Clothing,Jacket,7,3036.58,15,18067.65,8766.07,182.32,Debit Card,5.0
+ORD00312,2023-02-12,Customer_0312,43.0,Male,Chennai,Electronics,Headphones,8,4033.77,25,24202.62,4390.97,198.93,Credit Card,4.0
+ORD00313,2024-03-13,Customer_0313,57.0,Female,Hyderabad,Clothing,Shoes,8,565.05,10,4068.36,1960.15,28.89,Cash on Delivery,3.0
+ORD00314,2023-08-27,Customer_0314,26.0,Male,Lucknow,Furniture,Bookshelf,8,1063.6,20,6807.04,1497.37,267.68,Credit Card,
+ORD00315,2024-01-01,Customer_0315,59.0,Male,Delhi,Electronics,Smartwatch,4,1802.78,20,5768.9,915.12,248.75,Debit Card,
+ORD00316,2023-10-03,Customer_0316,37.0,Female,Ahmedabad,Groceries,Oil,2,1415.95,5,26903.0,1274.7,142.77,Cash on Delivery,
+ORD00317,2024-07-21,Customer_0317,54.0,Female,Delhi,Furniture,Bookshelf,7,1891.42,15,11253.95,2972.19,37.52,Debit Card,3.0
+ORD00318,2023-10-29,Customer_0318,52.0,Male,Kolkata,Furniture,Bed,5,2444.63,5,11611.99,3751.51,60.34,Credit Card,1.0
+ORD00319,2024-03-14,Customer_0319,35.0,Female,Lucknow,Electronics,Laptop,5,2151.18,0,10755.9,4659.95,117.18,Net Banking,5.0
+ORD00320,2023-02-09,Customer_0320,29.0,Female,Kolkata,Electronics,Mobile,4,177.53,20,568.1,186.74,227.66,Credit Card,4.0
+ORD00321,2024-03-14,Customer_0321,62.0,Male,Bangalore,Furniture,Table,7,2324.55,0,16271.85,5209.47,272.92,Net Banking,
+ORD00322,2023-09-27,Customer_0322,55.0,Male,Bangalore,Electronics,Tablet,6,1226.15,0,7356.9,1768.89,98.24,Cash on Delivery,5.0
+ORD00323,2024-02-10,Customer_0323,52.0,Female,Mumbai,Furniture,Bookshelf,6,4852.64,25,21836.88,9825.5,124.87,UPI,
+ORD00324,2023-11-04,Customer_0324,39.0,Female,Lucknow,Beauty,Soap,9,223.66,25,1509.7,480.05,166.15,Debit Card,5.0
+ORD00325,2024-05-14,Customer_0325,41.0,Female,Kolkata,Electronics,Tablet,1,845.04,0,845.04,258.57,75.86,UPI,4.0
+ORD00326,2023-08-17,Customer_0326,35.0,Female,Delhi,Clothing,Jacket,1,3885.33,20,3108.26,1386.06,156.43,Net Banking,4.0
+ORD00327,2023-06-20,Customer_0327,26.0,Female,Chennai,Clothing,Cap,5,3838.18,0,19190.9,6165.97,192.24,Cash on Delivery,4.0
+ORD00328,2023-11-04,Customer_0328,33.0,Male,Mumbai,Electronics,Mobile,9,4211.98,0,37907.82,8392.69,231.05,Net Banking,3.0
+ORD00329,2023-03-13,Customer_0329,60.0,Male,Lucknow,Electronics,Mobile,1,3092.78,5,2938.14,1065.86,230.22,Net Banking,5.0
+ORD00330,2024-02-28,Customer_0330,25.0,Male,Ahmedabad,Beauty,Soap,7,4644.04,25,24381.21,11625.99,25.36,Credit Card,5.0
+ORD00331,2024-03-25,Customer_0331,55.0,Female,Chennai,Beauty,Perfume,8,4672.7,15,31774.36,9244.68,202.95,UPI,4.0
+ORD00332,2023-08-06,Customer_0332,34.0,Female,Bangalore,Groceries,Beverages,1,1479.92,5,1405.92,478.76,209.87,Debit Card,5.0
+ORD00333,2024-11-26,Customer_0333,33.0,Male,Jaipur,Groceries,Snacks,1,536.05,0,536.05,92.51,72.01,Cash on Delivery,4.0
+ORD00334,2024-05-25,Customer_0334,37.0,Female,Bangalore,Beauty,Shampoo,2,1028.03,25,1542.04,738.59,273.33,Net Banking,5.0
+ORD00335,2023-10-10,Customer_0335,64.0,Female,Hyderabad,Furniture,Table,1,133.7,15,113.64,22.42,89.85,Cash on Delivery,4.0
+ORD00336,2023-09-03,Customer_0336,39.0,Female,Hyderabad,Groceries,Rice,9,3675.59,10,29772.28,11321.28,140.39,Net Banking,3.0
+ORD00337,2023-10-29,Customer_0337,60.0,Female,Hyderabad,Clothing,Jeans,9,905.59,0,8150.31,2962.29,119.44,UPI,4.0
+ORD00338,2024-10-24,Customer_0338,28.0,Male,Chennai,Clothing,Cap,3,2113.2,5,6022.62,2322.45,23.03,Net Banking,5.0
+ORD00339,2023-07-16,Customer_0339,47.0,Male,Kolkata,Furniture,Bookshelf,9,4488.92,5,38380.27,9264.87,29.08,Debit Card,5.0
+ORD00340,2024-03-20,Customer_0340,38.0,Male,Hyderabad,Beauty,Perfume,6,2175.38,25,9789.21,4004.91,291.52,Credit Card,3.0
+ORD00341,2024-03-14,Customer_0341,59.0,Female,Pune,Groceries,Rice,6,1209.96,0,7259.76,2987.39,181.74,UPI,5.0
+ORD00342,2024-06-12,Customer_0342,62.0,Male,Ahmedabad,Beauty,Shampoo,6,1124.39,0,6746.34,1402.52,120.33,Net Banking,5.0
+ORD00343,2023-09-26,Customer_0343,40.0,Male,Chennai,Beauty,Perfume,1,1451.21,10,1306.09,645.39,210.18,Debit Card,4.0
+ORD00344,2024-03-23,Customer_0344,24.0,Male,Bangalore,Groceries,Snacks,2,4858.64,0,9717.28,1702.12,256.56,UPI,4.0
+ORD00345,2023-12-03,Customer_0345,61.0,Female,Mumbai,Groceries,Snacks,3,1837.86,15,4686.54,1225.65,283.25,UPI,5.0
+ORD00346,2023-12-21,Customer_0346,32.0,Male,Hyderabad,Clothing,T-Shirt,4,2124.55,5,8073.29,2517.06,97.87,Net Banking,4.0
+ORD00347,2023-08-25,Customer_0347,48.0,Male,Ahmedabad,Clothing,Shoes,2,2829.5,25,4244.25,1650.19,291.23,Cash on Delivery,
+ORD00348,2023-05-05,Customer_0348,22.0,Male,Delhi,Furniture,Table,9,1499.93,25,10124.53,2396.08,168.76,UPI,5.0
+ORD00349,2023-12-16,Customer_0349,,Male,Ahmedabad,Beauty,Soap,6,4721.56,20,22663.49,7910.56,126.13,Debit Card,4.0
+ORD00350,2023-07-21,Customer_0350,60.0,Other,Hyderabad,Electronics,Smartwatch,4,1154.5,10,4156.2,1264.35,251.98,Credit Card,
+ORD00351,2024-02-20,Customer_0351,28.0,Female,Jaipur,Electronics,Headphones,6,4120.09,10,22248.49,3751.88,132.06,Cash on Delivery,4.0
+ORD00352,2024-06-13,Customer_0352,64.0,Female,Kolkata,Groceries,Rice,1,1592.01,0,1592.01,695.05,194.37,Credit Card,4.0
+ORD00353,2023-08-25,Customer_0353,63.0,Male,Jaipur,Groceries,Oil,8,2148.91,0,17191.28,3798.86,222.79,Credit Card,4.0
+ORD00354,2023-02-17,Customer_0354,62.0,Male,Delhi,Furniture,Bed,2,476.36,10,857.45,421.61,253.79,Cash on Delivery,4.0
+ORD00355,2023-02-23,Customer_0355,23.0,Male,Lucknow,Electronics,Laptop,1,147.47,10,132.72,65.03,183.31,Cash on Delivery,5.0
+ORD00356,2024-10-03,Customer_0356,30.0,Female,Mumbai,Groceries,Spices,8,4530.79,25,27184.74,11742.27,46.09,Cash on Delivery,5.0
+ORD00357,2023-03-31,Customer_0357,40.0,Female,Hyderabad,Beauty,Soap,4,2305.29,20,7376.93,2071.0,100.45,Cash on Delivery,3.0
+ORD00358,2023-07-14,Customer_0358,54.0,Male,Hyderabad,Beauty,Soap,4,3499.65,15,11898.81,5277.38,180.16,Credit Card,5.0
+ORD00359,2023-08-12,Customer_0359,51.0,Female,Hyderabad,Groceries,Oil,2,377.73,15,642.14,189.63,114.51,Cash on Delivery,3.0
+ORD00360,2024-07-03,Customer_0360,35.0,Female,,Groceries,Beverages,6,4388.08,0,26328.48,11863.94,172.76,Debit Card,1.0
+ORD00361,2023-10-27,Customer_0361,36.0,Male,Bangalore,Groceries,Spices,2,247.1,0,494.2,220.08,296.76,Credit Card,3.0
+ORD00362,2024-02-19,Customer_0362,19.0,Female,Kolkata,Beauty,Soap,3,4927.36,5,14042.98,4886.58,145.0,Net Banking,4.0
+ORD00363,2023-12-07,Customer_0363,28.0,Male,Chennai,Furniture,Chair,4,3055.64,5,11611.43,4775.15,151.87,Debit Card,
+ORD00364,2023-04-18,Customer_0364,29.0,Female,Pune,Clothing,Jeans,3,717.18,5,2043.96,539.93,257.13,Debit Card,3.0
+ORD00365,2023-11-12,Customer_0365,27.0,Male,Ahmedabad,Electronics,Laptop,6,2202.41,25,9910.84,4458.01,25.15,Credit Card,5.0
+ORD00366,2023-09-03,Customer_0366,,Female,,Clothing,Cap,6,697.84,5,3977.69,1926.2,225.56,Credit Card,3.0
+ORD00367,2023-07-20,Customer_0367,53.0,Male,Jaipur,Groceries,Oil,9,1367.1,15,10458.31,3462.23,237.69,Debit Card,3.0
+ORD00368,2024-09-04,Customer_0368,35.0,Female,Lucknow,Beauty,Makeup Kit,4,2863.21,20,9162.27,4358.6,45.17,Cash on Delivery,3.0
+ORD00369,2024-02-24,Customer_0369,50.0,Female,Pune,Groceries,Spices,6,2674.8,20,12839.04,2374.04,241.81,UPI,5.0
+ORD00370,2024-02-04,Customer_0370,23.0,Female,Kolkata,Beauty,Perfume,5,3342.99,10,15043.45,4397.03,24.55,Net Banking,5.0
+ORD00371,2024-11-11,Customer_0371,40.0,Female,Mumbai,Groceries,Rice,6,4600.15,5,26220.85,10189.64,270.39,Net Banking,5.0
+ORD00372,2024-04-20,Customer_0372,37.0,Female,Pune,Furniture,Chair,3,826.27,25,1859.11,577.99,258.32,Credit Card,4.0
+ORD00373,2024-05-22,Customer_0373,28.0,Other,Pune,Clothing,Cap,9,2010.51,0,18094.59,7052.88,47.06,Debit Card,5.0
+ORD00374,2024-07-11,Customer_0374,19.0,Female,,Furniture,Bed,3,4081.12,5,11631.19,3875.96,109.13,Credit Card,5.0
+ORD00375,2024-11-05,Customer_0375,56.0,Female,Pune,Furniture,Bed,5,2934.61,15,124720.9,3736.33,91.89,UPI,5.0
+ORD00376,2024-10-14,Customer_0376,60.0,Male,Lucknow,Beauty,Perfume,9,1494.25,15,11431.01,3746.87,243.02,Debit Card,3.0
+ORD00377,2023-10-26,Customer_0377,32.0,Male,Lucknow,Furniture,Table,9,521.56,10,4224.64,881.49,293.13,Debit Card,4.0
+ORD00378,2024-09-01,Customer_0378,45.0,Female,,Furniture,Sofa,3,3477.62,25,7824.64,2272.99,202.83,UPI,5.0
+ORD00379,2024-10-27,Customer_0379,41.0,Other,Pune,Beauty,Makeup Kit,6,2826.68,10,15264.07,2601.73,168.32,Credit Card,
+ORD00380,2023-03-16,Customer_0380,40.0,Male,Jaipur,Groceries,Beverages,1,3412.91,5,3242.26,1153.28,281.72,Debit Card,5.0
+ORD00381,2024-04-11,Customer_0381,20.0,Male,Ahmedabad,Electronics,Smartwatch,1,2579.07,25,1934.3,925.78,159.8,Credit Card,4.0
+ORD00382,2024-05-21,Customer_0382,42.0,Female,Delhi,Furniture,Table,5,2265.96,15,9630.33,3477.21,147.51,Credit Card,
+ORD00383,2024-10-11,Customer_0383,50.0,Male,Delhi,Electronics,Laptop,9,3048.85,20,21951.72,10121.43,263.09,Cash on Delivery,3.0
+ORD00384,2024-03-02,Customer_0384,52.0,Male,Hyderabad,Electronics,Tablet,6,386.97,0,2321.82,1126.81,121.82,Debit Card,3.0
+ORD00385,2023-10-10,Customer_0385,48.0,Male,Lucknow,Groceries,Snacks,9,2041.93,15,15620.76,3005.91,176.34,Credit Card,4.0
+ORD00386,2023-03-07,Customer_0386,43.0,Male,Pune,Groceries,Snacks,4,3939.0,20,12604.8,5441.25,209.98,Cash on Delivery,
+ORD00387,2024-08-29,Customer_0387,47.0,Other,Chennai,Furniture,Bookshelf,5,151.42,5,719.24,238.47,246.71,Cash on Delivery,1.0
+ORD00388,2023-04-27,Customer_0388,24.0,Male,Chennai,Beauty,Shampoo,2,3255.39,20,5208.62,2392.0,55.59,Debit Card,
+ORD00389,2024-08-29,Customer_0389,39.0,Female,Lucknow,Electronics,Tablet,4,1077.12,15,3662.21,1378.51,243.94,Credit Card,3.0
+ORD00390,2024-07-20,Customer_0390,62.0,Female,Chennai,Electronics,Smartwatch,7,3064.94,15,18236.39,9026.72,153.93,Debit Card,5.0
+ORD00391,2023-11-26,Customer_0391,27.0,Male,Pune,Beauty,Perfume,7,1931.66,20,10817.3,5361.93,60.03,Cash on Delivery,3.0
+ORD00392,2023-05-27,Customer_0392,38.0,Female,Bangalore,Beauty,Soap,3,1975.64,5,5630.57,2528.89,161.6,Credit Card,1.0
+ORD00393,2023-11-23,Customer_0393,61.0,Female,Ahmedabad,Groceries,Spices,7,315.92,0,2211.44,406.98,166.97,Credit Card,1.0
+ORD00394,2023-01-12,Customer_0394,53.0,Other,Chennai,Electronics,Laptop,9,722.03,5,6173.36,1451.57,210.56,UPI,4.0
+ORD00395,2023-07-09,Customer_0395,49.0,Male,Hyderabad,Electronics,Laptop,2,3394.71,0,6789.42,3263.03,112.72,Cash on Delivery,4.0
+ORD00396,2023-09-06,Customer_0396,56.0,Male,Jaipur,Electronics,Tablet,2,303.0,5,575.7,167.08,224.02,Cash on Delivery,4.0
+ORD00397,2023-03-07,Customer_0397,28.0,Male,Lucknow,Clothing,Jeans,7,650.59,15,3871.01,1836.96,98.57,Net Banking,5.0
+ORD00398,2024-07-16,Customer_0398,45.0,Female,Bangalore,Groceries,Rice,7,3100.15,25,16275.79,7028.36,246.93,Cash on Delivery,4.0
+ORD00399,2023-09-10,Customer_0399,33.0,Female,Pune,Furniture,Bed,1,4790.27,10,4311.24,1944.39,136.43,Cash on Delivery,5.0
+ORD00400,2024-11-15,Customer_0400,42.0,Male,Bangalore,Furniture,Bed,8,877.81,25,5266.86,1011.97,273.97,UPI,4.0
+ORD00401,2024-05-05,Customer_0401,,Male,Bangalore,Furniture,Bookshelf,2,2920.41,0,5840.82,1579.56,75.67,UPI,4.0
+ORD00402,2024-03-07,Customer_0402,48.0,Female,Mumbai,Clothing,Jeans,4,3526.76,10,12696.34,3259.99,178.87,Cash on Delivery,3.0
+ORD00403,2024-08-26,Customer_0403,23.0,Male,Pune,Beauty,Soap,1,3500.69,5,3325.66,1327.39,21.81,Net Banking,
+ORD00404,2023-06-17,Customer_0404,41.0,Female,Hyderabad,Furniture,Table,3,954.61,10,2577.45,1233.78,28.66,Credit Card,4.0
+ORD00405,2024-05-22,Customer_0405,42.0,Female,Mumbai,Beauty,Shampoo,2,4464.23,5,8482.04,2379.73,246.35,Debit Card,5.0
+ORD00406,2024-03-14,Customer_0406,23.0,Male,Kolkata,Furniture,Chair,2,1601.44,20,2562.3,748.4,185.1,Debit Card,5.0
+ORD00407,2023-10-01,Customer_0407,57.0,Female,Hyderabad,Clothing,T-Shirt,8,2061.53,0,16492.24,4754.82,128.49,Credit Card,5.0
+ORD00408,2023-03-10,Customer_0408,21.0,Female,Jaipur,Furniture,Chair,7,3346.58,5,22254.76,4226.85,248.5,UPI,
+ORD00409,2023-09-24,Customer_0409,29.0,Female,Jaipur,Electronics,Smartwatch,3,4525.8,5,12898.53,2570.82,160.02,Cash on Delivery,4.0
+ORD00410,2024-09-06,Customer_0410,22.0,Female,Delhi,Clothing,Shoes,8,4038.4,20,25845.76,4468.98,104.95,Cash on Delivery,5.0
+ORD00411,2024-05-07,Customer_0411,23.0,Male,Pune,Groceries,Rice,2,4829.53,5,9176.11,2741.17,77.91,Cash on Delivery,4.0
+ORD00412,2024-04-11,Customer_0412,31.0,Female,Kolkata,Beauty,Perfume,8,4143.54,0,33148.32,12818.26,234.25,UPI,3.0
+ORD00413,2023-05-24,Customer_0413,59.0,Female,,Electronics,Mobile,6,634.17,5,3614.77,1406.4,246.47,UPI,4.0
+ORD00414,2024-07-01,Customer_0414,42.0,Female,Lucknow,Clothing,Jeans,9,4567.91,5,39055.63,6609.84,211.11,UPI,2.0
+ORD00415,2023-03-16,Customer_0415,56.0,Female,Hyderabad,Clothing,Shoes,6,125.18,10,675.97,112.66,112.07,UPI,5.0
+ORD00416,2024-10-30,Customer_0416,62.0,Female,Pune,Electronics,Smartwatch,8,3420.84,15,23261.71,6542.52,198.74,Cash on Delivery,2.0
+ORD00417,2023-10-25,Customer_0417,34.0,Female,Bangalore,Electronics,Headphones,5,3216.63,15,13670.68,4070.58,106.2,Cash on Delivery,4.0
+ORD00418,2023-09-27,Customer_0418,31.0,Male,Delhi,Furniture,Bed,1,1590.79,15,1352.17,622.8,134.18,Cash on Delivery,4.0
+ORD00419,2023-12-27,Customer_0419,30.0,Male,Jaipur,Furniture,Bookshelf,2,3899.98,20,6239.97,2815.86,23.0,Net Banking,
+ORD00420,2024-05-16,Customer_0420,44.0,Male,Jaipur,Clothing,Jeans,7,4411.58,20,24704.85,8756.6,37.68,Net Banking,3.0
+ORD00421,2024-03-20,Customer_0421,60.0,Male,Delhi,Groceries,Spices,5,4106.35,20,16425.4,3497.15,201.65,Cash on Delivery,4.0
+ORD00422,2024-01-25,Customer_0422,58.0,Male,Lucknow,Beauty,Lotion,1,4979.1,20,39832.8,1629.71,20.46,Credit Card,4.0
+ORD00423,2024-09-03,Customer_0423,63.0,Female,Mumbai,Clothing,T-Shirt,6,4235.01,25,19057.55,4044.4,230.8,Credit Card,5.0
+ORD00424,2023-05-05,Customer_0424,58.0,Female,Delhi,Groceries,Beverages,2,457.72,10,823.9,232.78,221.24,Debit Card,5.0
+ORD00425,2023-01-13,Customer_0425,59.0,Female,Pune,Clothing,T-Shirt,8,4031.77,20,25803.33,6226.81,212.22,UPI,5.0
+ORD00426,2023-03-12,Customer_0426,,Female,Chennai,Clothing,Jeans,8,1671.55,25,10029.3,4141.98,170.75,Debit Card,4.0
+ORD00427,2024-03-06,Customer_0427,55.0,Female,Mumbai,Electronics,Headphones,3,697.21,25,1568.72,599.15,251.71,UPI,
+ORD00428,2024-09-02,Customer_0428,51.0,Male,Delhi,Electronics,Tablet,6,4889.73,25,22003.78,7205.47,112.44,Debit Card,5.0
+ORD00429,2023-07-26,Customer_0429,18.0,Female,Chennai,Electronics,Mobile,8,700.24,10,5041.73,1945.11,25.81,Credit Card,5.0
+ORD00430,2023-08-07,Customer_0430,43.0,Female,Lucknow,Furniture,Chair,5,4312.26,15,18327.11,6340.72,155.2,UPI,4.0
+ORD00431,2024-11-29,Customer_0431,63.0,Female,Kolkata,Electronics,Mobile,7,4905.89,20,27472.98,11003.9,100.91,UPI,
+ORD00432,2024-03-09,Customer_0432,18.0,Female,Pune,Clothing,Jeans,1,2566.39,25,1924.79,521.32,135.14,UPI,3.0
+ORD00433,2023-04-07,Customer_0433,43.0,Female,Kolkata,Clothing,Cap,7,4759.01,20,26650.46,4411.26,287.02,UPI,5.0
+ORD00434,2023-05-10,Customer_0434,43.0,Female,Delhi,Electronics,Smartwatch,7,4162.84,25,21854.91,8008.39,237.07,Credit Card,5.0
+ORD00435,2024-10-24,Customer_0435,31.0,Female,Lucknow,Electronics,Mobile,7,4448.6,5,29583.19,5223.64,249.69,Debit Card,5.0
+ORD00436,2023-05-06,Customer_0436,29.0,Female,Mumbai,Clothing,Shoes,1,2187.39,10,1968.65,820.69,103.97,UPI,5.0
+ORD00437,2023-05-10,Customer_0437,39.0,Female,Lucknow,Clothing,Jeans,4,2634.74,20,8431.17,3203.63,211.48,Credit Card,2.0
+ORD00438,2023-04-27,Customer_0438,54.0,Male,Ahmedabad,Beauty,Perfume,6,1090.53,25,4907.38,1941.89,45.13,Credit Card,5.0
+ORD00439,2023-09-30,Customer_0439,38.0,Male,Lucknow,Groceries,Rice,5,2895.01,25,10856.29,4646.19,227.64,Net Banking,4.0
+ORD00440,2024-07-07,Customer_0440,46.0,Female,Hyderabad,Electronics,Laptop,4,4590.8,5,17445.04,7493.65,269.27,UPI,4.0
+ORD00441,2023-07-24,Customer_0441,43.0,Female,Chennai,Groceries,Rice,5,4375.87,5,20785.38,3705.56,138.66,UPI,4.0
+ORD00442,2023-09-30,Customer_0442,52.0,Female,Pune,Clothing,T-Shirt,1,2211.21,10,1990.09,692.96,257.57,Cash on Delivery,
+ORD00443,2024-07-14,Customer_0443,23.0,Male,Jaipur,Beauty,Shampoo,9,2069.19,5,17691.57,5233.21,149.98,UPI,5.0
+ORD00444,2023-11-30,Customer_0444,21.0,Female,Mumbai,Clothing,Jeans,7,2474.98,0,17324.86,5736.08,80.49,Cash on Delivery,5.0
+ORD00445,2024-08-12,Customer_0445,53.0,Male,Kolkata,Clothing,Shoes,8,3435.29,15,23359.97,10670.66,77.67,Net Banking,2.0
+ORD00446,2023-05-10,Customer_0446,19.0,Male,Bangalore,Electronics,Tablet,4,4299.13,25,12897.39,3739.11,224.75,Debit Card,5.0
+ORD00447,2023-08-26,Customer_0447,47.0,Male,Bangalore,Groceries,Spices,6,2536.54,15,12936.35,5927.65,111.8,Cash on Delivery,4.0
+ORD00448,2024-09-10,Customer_0448,20.0,Female,Chennai,Furniture,Bookshelf,5,3906.31,10,17578.4,4603.18,96.75,Credit Card,3.0
+ORD00449,2024-06-12,Customer_0449,41.0,Male,Kolkata,Furniture,Bookshelf,5,3765.28,0,18826.4,5724.91,260.22,Debit Card,5.0
+ORD00450,2023-04-29,Customer_0450,48.0,Female,Hyderabad,Groceries,Beverages,2,358.85,5,681.82,316.72,241.73,Debit Card,4.0
+ORD00451,2023-04-16,Customer_0451,29.0,Female,Ahmedabad,Beauty,Lotion,5,3124.25,15,13278.06,3931.1,54.75,Net Banking,5.0
+ORD00452,2024-03-22,Customer_0452,53.0,Female,Ahmedabad,Furniture,Sofa,9,3052.1,0,27468.9,9812.95,98.3,Cash on Delivery,3.0
+ORD00453,2024-04-04,Customer_0453,,Male,Jaipur,Beauty,Lotion,6,3774.77,25,16986.46,5174.76,117.16,Credit Card,5.0
+ORD00454,2024-07-09,Customer_0454,55.0,Male,Ahmedabad,Clothing,Cap,6,1747.98,25,7865.91,3899.91,174.79,Net Banking,4.0
+ORD00455,2024-01-17,Customer_0455,49.0,Male,Lucknow,Beauty,Shampoo,7,2469.14,10,15555.58,3514.78,230.04,Credit Card,5.0
+ORD00456,2024-06-27,Customer_0456,40.0,Male,Ahmedabad,Groceries,Oil,9,684.13,5,5849.31,2101.03,138.99,Credit Card,3.0
+ORD00457,2024-06-13,Customer_0457,35.0,Male,Chennai,Beauty,Lotion,1,2026.98,15,1722.93,590.66,181.73,Debit Card,4.0
+ORD00458,2023-05-19,Customer_0458,42.0,Female,Chennai,Groceries,Rice,2,4853.36,15,8250.71,2633.46,99.69,UPI,4.0
+ORD00459,2023-11-06,Customer_0459,22.0,Male,Bangalore,Clothing,Jacket,1,568.64,5,540.21,259.47,155.98,Net Banking,3.0
+ORD00460,2024-09-07,Customer_0460,29.0,Female,Lucknow,Furniture,Table,2,178.54,15,303.52,95.16,260.99,Debit Card,2.0
+ORD00461,2023-11-25,Customer_0461,63.0,Male,Kolkata,Groceries,Beverages,5,2732.97,10,12298.36,2278.43,194.58,Cash on Delivery,4.0
+ORD00462,2024-07-30,Customer_0462,38.0,Male,Kolkata,Furniture,Bed,4,1206.37,5,4584.21,777.15,298.74,Net Banking,4.0
+ORD00463,2023-09-12,Customer_0463,43.0,Female,Jaipur,Furniture,Bookshelf,4,4209.18,20,13469.38,5236.0,22.46,Cash on Delivery,5.0
+ORD00464,2024-11-24,Customer_0464,59.0,Female,Lucknow,Beauty,Makeup Kit,8,691.66,5,5256.62,907.36,230.4,Cash on Delivery,4.0
+ORD00465,2023-03-12,Customer_0465,32.0,Male,Bangalore,Beauty,Shampoo,8,3174.59,20,20317.38,3549.62,77.34,UPI,5.0
+ORD00466,2023-01-04,Customer_0466,53.0,Female,Chennai,Clothing,Shoes,2,330.26,15,561.44,88.81,125.62,Debit Card,5.0
+ORD00467,2024-05-24,Customer_0467,62.0,Male,Hyderabad,Furniture,Sofa,9,1698.48,0,15286.32,4470.18,156.98,Net Banking,3.0
+ORD00468,2024-05-27,Customer_0468,52.0,Female,Lucknow,Clothing,Jeans,7,3352.34,0,23466.38,8448.04,36.07,Credit Card,4.0
+ORD00469,2023-02-28,Customer_0469,48.0,Female,Bangalore,Groceries,Rice,9,2967.95,5,25375.97,4392.78,56.7,UPI,4.0
+ORD00470,2024-01-15,Customer_0470,61.0,Female,Mumbai,Clothing,T-Shirt,9,4009.24,10,32474.84,11044.34,153.03,Debit Card,4.0
+ORD00471,2024-05-17,Customer_0471,48.0,Male,Hyderabad,Electronics,Laptop,1,644.64,20,515.71,182.56,265.77,Cash on Delivery,3.0
+ORD00472,2023-05-25,Customer_0472,53.0,Female,Kolkata,Beauty,Soap,2,4213.32,10,7583.98,2982.66,73.95,Credit Card,4.0
+ORD00473,2024-08-02,Customer_0473,56.0,Male,Pune,Groceries,Spices,2,4120.67,5,7829.27,2663.08,112.18,UPI,5.0
+ORD00474,2024-02-09,Customer_0474,38.0,Male,Lucknow,Groceries,Snacks,8,710.77,0,5686.16,2282.2,71.6,Credit Card,2.0
+ORD00475,2023-10-23,Customer_0475,31.0,Female,Mumbai,Groceries,Spices,6,2339.59,10,12633.79,2852.39,22.94,Cash on Delivery,5.0
+ORD00476,2023-09-23,Customer_0476,33.0,Female,Hyderabad,Clothing,Shoes,6,4553.44,5,25954.61,8549.65,284.7,Credit Card,
+ORD00477,2024-09-23,Customer_0477,50.0,Male,Chennai,Groceries,Spices,5,2941.16,25,11029.35,1839.14,250.62,UPI,
+ORD00478,2023-06-02,Customer_0478,38.0,Female,Pune,Electronics,Headphones,6,413.11,15,2106.86,820.07,44.35,UPI,4.0
+ORD00479,2024-05-11,Customer_0479,24.0,Female,Hyderabad,Beauty,Soap,7,3991.49,20,22352.34,4833.93,285.54,Credit Card,4.0
+ORD00480,2023-09-15,Customer_0480,24.0,Male,Hyderabad,Electronics,Headphones,4,3768.62,20,12059.58,1828.26,100.5,Credit Card,4.0
+ORD00481,2023-07-15,Customer_0481,35.0,Female,Delhi,Beauty,Makeup Kit,8,389.35,15,2647.58,819.89,214.59,Credit Card,2.0
+ORD00482,2023-10-06,Customer_0482,52.0,Male,Hyderabad,Furniture,Sofa,1,4489.06,15,3815.7,1587.8,29.07,Credit Card,4.0
+ORD00483,2023-04-19,Customer_0483,39.0,Other,Delhi,Beauty,Shampoo,1,1256.38,10,1130.74,561.77,201.52,UPI,4.0
+ORD00484,2023-03-23,Customer_0484,55.0,Female,Jaipur,Electronics,Smartwatch,8,2957.22,25,17743.32,4772.99,128.86,UPI,4.0
+ORD00485,2024-01-24,Customer_0485,31.0,Male,Hyderabad,Furniture,Table,4,4203.5,0,16814.0,3175.25,64.98,Net Banking,5.0
+ORD00486,2023-01-01,Customer_0486,59.0,Other,Delhi,Groceries,Rice,7,1646.6,15,9797.27,1646.12,219.12,Debit Card,4.0
+ORD00487,2023-05-02,Customer_0487,56.0,Male,Pune,Clothing,Shoes,1,1283.85,25,962.89,480.53,257.99,Net Banking,5.0
+ORD00488,2024-02-22,Customer_0488,39.0,Male,Mumbai,Clothing,Jacket,6,4234.68,5,24137.68,9452.7,282.59,Net Banking,
+ORD00489,2023-05-18,Customer_0489,27.0,Female,Chennai,Clothing,Shoes,7,3605.28,15,21451.42,9122.43,135.12,Cash on Delivery,1.0
+ORD00490,2023-09-16,Customer_0490,42.0,Female,Pune,Furniture,Sofa,4,1284.13,25,3852.39,1442.6,94.98,Credit Card,5.0
+ORD00491,2023-12-21,Customer_0491,45.0,Female,Kolkata,Groceries,Rice,1,3537.67,0,3537.67,805.88,83.24,UPI,5.0
+ORD00492,2024-03-17,Customer_0492,29.0,Male,Jaipur,Furniture,Bed,8,4557.74,20,29169.54,12286.02,205.45,Net Banking,4.0
+ORD00493,2024-05-31,Customer_0493,25.0,Male,Delhi,Furniture,Sofa,7,953.37,5,6339.91,1768.18,165.25,Credit Card,1.0
+ORD00494,2024-04-08,Customer_0494,40.0,Female,Delhi,Groceries,Rice,9,2814.5,0,25330.5,8630.7,65.8,Cash on Delivery,3.0
+ORD00495,2024-01-04,Customer_0495,22.0,Female,Chennai,Electronics,Tablet,8,2929.03,15,19917.4,8107.47,245.9,Net Banking,1.0
+ORD00496,2024-08-13,Customer_0496,19.0,Male,Chennai,Furniture,Table,2,1179.6,25,1769.4,522.39,156.79,Cash on Delivery,4.0
+ORD00497,2024-10-21,Customer_0497,24.0,Male,Pune,Beauty,Soap,8,3251.21,25,19507.26,8986.23,33.81,Net Banking,3.0
+ORD00498,2024-07-18,Customer_0498,56.0,Male,Hyderabad,Groceries,Oil,3,3706.01,20,8894.42,1775.57,67.77,UPI,
+ORD00499,2023-07-22,Customer_0499,28.0,Female,Bangalore,Electronics,Laptop,1,4198.26,25,3148.7,499.19,38.28,UPI,5.0
+ORD00500,2023-10-08,Customer_0500,27.0,Male,Pune,Groceries,Rice,6,2982.99,10,16108.15,7507.1,37.99,Net Banking,2.0
+ORD00305,2024-05-18,Customer_0305,28.0,Female,Pune,Electronics,Headphones,8,3707.52,20,23728.13,5009.12,256.56,UPI,5.0
+ORD00341,2024-03-14,Customer_0341,59.0,Female,Pune,Groceries,Rice,6,1209.96,0,7259.76,2987.39,181.74,UPI,5.0
+ORD00048,2024-04-05,Customer_0048,23.0,Female,Chennai,Furniture,Chair,1,2396.6,10,2156.94,977.42,23.83,UPI,5.0
+ORD00068,2023-10-16,Customer_0068,55.0,Male,,Beauty,Perfume,4,2892.46,5,10991.35,3595.34,231.3,Cash on Delivery,4.0
+ORD00480,2023-09-15,Customer_0480,24.0,Male,Hyderabad,Electronics,Headphones,4,3768.62,20,12059.58,1828.26,100.5,Credit Card,4.0
