@@ -7,3 +7,4 @@ mycursor.execute("show databases")
 
 for x in mycursor:
     print(x)
+    # print
