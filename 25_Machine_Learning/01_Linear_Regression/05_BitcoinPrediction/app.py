@@ -1,531 +1,416 @@
-
-import pickle
 from pathlib import Path
+from datetime import date, timedelta
+import pickle
+import warnings
 
-import gradio as gr
+import numpy as np
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
+warnings.filterwarnings("ignore", category=UserWarning)
 
-# -----------------------------
-# Page configuration
-# -----------------------------
+# ============================================================
+# BTC FORECAST AI — Streamlit dashboard
+# Keep app.py, crypto_data.csv, and both .pkl files together.
+# ============================================================
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "crypto_08_OCT_2026.csv"
+NEXT_DAY_MODEL_PATH = BASE_DIR / "btc_next_day_lr.pkl"
+NEXT_7DAY_MODEL_PATH = BASE_DIR / "btc_next_7day_mlp.pkl"
+
 st.set_page_config(
     page_title="BTC Forecast AI",
     page_icon="₿",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
-BASE_DIR = Path(__file__).resolve().parent
+# ------------------------- Styling --------------------------
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    :root { --bg:#0b1020; --panel:#111a2e; --line:rgba(148,163,184,.16); --muted:#94a3b8; --text:#edf2ff; --purple:#8b5cf6; --cyan:#22d3ee; }
+    html, body, [class*="css"] { font-family:'DM Sans',sans-serif; }
+    .stApp { background: radial-gradient(ellipse at 10% 0%, rgba(91,33,182,.16), transparent 35%), #0b1020; color:var(--text); }
+    [data-testid="stHeader"] { background:rgba(11,16,32,.82); }
+    [data-testid="stSidebar"] { background:#0d1426; border-right:1px solid var(--line); }
+    [data-testid="stSidebar"] * { color:#e5e7eb; }
+    .block-container { padding-top:1.5rem; padding-bottom:2rem; max-width:1500px; }
+    h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.025em; }
+    .hero { border:1px solid rgba(139,92,246,.28); background:linear-gradient(120deg,rgba(91,33,182,.23),rgba(17,26,46,.92) 55%,rgba(34,211,238,.08)); padding:26px 28px; border-radius:22px; margin-bottom:22px; }
+    .eyebrow { color:#a78bfa; text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:700; }
+    .hero-title { font-family:'Space Grotesk',sans-serif; font-size:2.2rem; font-weight:700; line-height:1.15; margin:.35rem 0 .55rem; color:#f8fafc; }
+    .hero-sub { color:#aab7cf; font-size:.98rem; max-width:780px; }
+    .pill { display:inline-block; border:1px solid rgba(34,211,238,.3); color:#67e8f9; background:rgba(34,211,238,.08); border-radius:999px; padding:5px 10px; font-size:.75rem; margin:0 5px 0 0; }
+    .metric-card { background:linear-gradient(145deg,rgba(20,31,54,.96),rgba(14,22,39,.96)); border:1px solid var(--line); border-radius:16px; padding:17px 18px; min-height:115px; }
+    .metric-label { color:#9baac4; font-size:.82rem; margin-bottom:8px; }
+    .metric-value { color:#f8fafc; font-family:'Space Grotesk',sans-serif; font-size:1.55rem; font-weight:700; line-height:1.25; }
+    .metric-note { color:#7dd3fc; font-size:.75rem; margin-top:7px; }
+    .section-head { margin:1.1rem 0 .65rem; }
+    .subtle { color:#94a3b8; font-size:.88rem; }
+    .stButton > button[kind="primary"] { background:linear-gradient(90deg,#7c3aed,#6366f1); border:0; border-radius:10px; font-weight:700; min-height:2.8rem; }
+    .stButton > button { border-radius:10px; }
+    div[data-testid="stForm"] { background:rgba(17,26,46,.7); border:1px solid var(--line); border-radius:16px; padding:18px; }
+    div[data-testid="stAlert"] { border-radius:12px; }
+    .footer { border-top:1px solid var(--line); margin-top:28px; padding-top:14px; color:#75839d; font-size:.78rem; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ------------------------- Helpers --------------------------
+@st.cache_data(show_spinner=False)
+def load_data(path_string: str, modified_time: float) -> pd.DataFrame:
+    df = pd.read_csv(path_string)
+    return df
 
 
-# -----------------------------
-# Load trained models
-# -----------------------------
-@st.cache_resource
-def load_models():
-    with open(BASE_DIR / "btc_next_day_lr.pkl", "rb") as f:
-        next_day_model = pickle.load(f)
-
-    with open(BASE_DIR / "btc_next_7day_mlp.pkl", "rb") as f:
-        next_7day_model = pickle.load(f)
-
-    return next_day_model, next_7day_model
+@st.cache_resource(show_spinner=False)
+def load_pickle(path_string: str, modified_time: float):
+    with open(path_string, "rb") as f:
+        return pickle.load(f)
 
 
-try:
-    next_day_model, next_7day_model = load_models()
-except Exception as e:
-    st.error(f"Model loading failed: {e}")
-    st.stop()
+def find_column(df: pd.DataFrame, candidates):
+    normalized = {str(c).strip().lower().replace("_", " "): c for c in df.columns}
+    for candidate in candidates:
+        key = candidate.strip().lower().replace("_", " ")
+        if key in normalized:
+            return normalized[key]
+    # fallback: match if a column contains all meaningful words
+    for c in df.columns:
+        low = str(c).lower().replace("_", " ")
+        if any(candidate.lower() in low for candidate in candidates):
+            return c
+    return None
 
 
-# -----------------------------
-# Prediction function
-# -----------------------------
-def predict_btc(close, volume, horizon):
-    if close <= 0 or volume < 0:
-        raise ValueError(
-            "Close must be positive and Volume cannot be negative."
-        )
+def money(value):
+    if value is None or not np.isfinite(float(value)):
+        return "—"
+    return f"${float(value):,.2f}"
 
-    input_data = pd.DataFrame(
-        [[close, volume]],
-        columns=["Close (BTC)", "Volume (BTC)"]
+
+def make_metric(label, value, note=""):
+    st.markdown(
+        f"""<div class="metric-card">
+        <div class="metric-label">{label}</div>
+        <div class="metric-value">{value}</div>
+        <div class="metric-note">{note}</div>
+        </div>""",
+        unsafe_allow_html=True,
     )
 
-    if horizon == "Next Day":
-        prediction = next_day_model.predict(input_data)[0]
+
+def plot_price_chart(df, date_col, close_col, volume_col=None, title="Bitcoin price history"):
+    plot_df = df.copy()
+    if date_col:
+        plot_df[date_col] = pd.to_datetime(plot_df[date_col], errors="coerce", utc=True)
+        plot_df = plot_df.dropna(subset=[date_col]).sort_values(date_col)
+        x = plot_df[date_col]
     else:
-        prediction = next_7day_model.predict(input_data)[0]
+        x = plot_df.index
 
-    return float(prediction)
-
-
-# -----------------------------
-# Custom CSS
-# -----------------------------
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
-}
-
-.stApp {
-    background:
-        radial-gradient(circle at 85% 5%, #16294a 0%, transparent 30%),
-        linear-gradient(135deg, #080d18, #0b1220 65%, #101b2d);
-    color: #f1f5f9;
-}
-
-.block-container {
-    max-width: 1450px;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-}
-
-.hero {
-    padding: 28px;
-    border: 1px solid #263852;
-    border-radius: 22px;
-    background: linear-gradient(120deg, #142641, #101827 75%);
-    margin-bottom: 24px;
-}
-
-.hero h1 {
-    font-size: 40px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
-
-.hero p {
-    color: #9fb0c9;
-    font-size: 15px;
-}
-
-.metric-card {
-    background: linear-gradient(145deg, #17253a, #101827);
-    border: 1px solid #293b55;
-    padding: 23px;
-    border-radius: 18px;
-    min-height: 140px;
-}
-
-.metric-label {
-    color: #9aabc2;
-    font-size: 14px;
-    margin-bottom: 14px;
-}
-
-.metric-value {
-    font-size: 28px;
-    font-weight: 800;
-    color: #ffffff;
-    overflow-wrap: anywhere;
-}
-
-.metric-note {
-    color: #36d6a5;
-    font-size: 12px;
-    margin-top: 9px;
-}
-
-.section-title {
-    font-size: 23px;
-    font-weight: 700;
-    margin-top: 22px;
-    margin-bottom: 12px;
-}
-
-div[data-testid="stForm"] {
-    background: #101a2a;
-    border: 1px solid #293b55;
-    padding: 22px;
-    border-radius: 18px;
-}
-
-.stButton > button,
-div[data-testid="stFormSubmitButton"] > button {
-    background: linear-gradient(90deg, #8b5cf6, #4f8cff);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: 700;
-    min-height: 45px;
-}
-
-.stButton > button:hover,
-div[data-testid="stFormSubmitButton"] > button:hover {
-    border: 1px solid #a5b4fc;
-    color: white;
-}
-
-div[data-testid="stSidebar"] {
-    background: #0c1422;
-    border-right: 1px solid #25344b;
-}
-
-.footer {
-    color: #8495ae;
-    font-size: 12px;
-    text-align: center;
-    padding: 22px 0;
-}
-</style>
-""", unsafe_allow_html=True)
+    fig = make_subplots(
+        rows=2 if volume_col else 1,
+        cols=1,
+        shared_xaxes=True,
+        vertical_spacing=0.08,
+        row_heights=[0.72, 0.28] if volume_col else [1],
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=x, y=pd.to_numeric(plot_df[close_col], errors="coerce"),
+            mode="lines", name="BTC Close",
+            line=dict(color="#8b5cf6", width=2.2),
+            fill="tozeroy", fillcolor="rgba(139,92,246,.09)",
+            hovertemplate="%{x}<br>Close: $%{y:,.2f}<extra></extra>",
+        ), row=1, col=1
+    )
+    if volume_col:
+        fig.add_trace(
+            go.Bar(
+                x=x, y=pd.to_numeric(plot_df[volume_col], errors="coerce"),
+                name="BTC Volume", marker_color="rgba(34,211,238,.55)",
+                hovertemplate="%{x}<br>Volume: %{y:,.2f}<extra></extra>",
+            ), row=2, col=1
+        )
+        fig.update_yaxes(title_text="Volume", row=2, col=1, gridcolor="rgba(148,163,184,.08)")
+    fig.update_layout(
+        title=dict(text=title, font=dict(size=17, color="#edf2ff")),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#aab7cf", family="DM Sans"),
+        margin=dict(l=8, r=8, t=52, b=8), height=430,
+        hovermode="x unified", legend=dict(orientation="h", y=1.02, x=1, xanchor="right"),
+    )
+    fig.update_xaxes(gridcolor="rgba(148,163,184,.08)", showline=False)
+    fig.update_yaxes(gridcolor="rgba(148,163,184,.08)", tickprefix="$" if not volume_col else "", row=1, col=1)
+    return fig
 
 
-# -----------------------------
-# Sidebar navigation
-# -----------------------------
-st.sidebar.markdown("## ₿ BTC Forecast AI")
-st.sidebar.caption("Machine Learning Dashboard")
-st.sidebar.divider()
+# -------------------------- Sidebar -------------------------
+with st.sidebar:
+    st.markdown("## ₿ BTC Forecast AI")
+    st.caption("Machine-learning crypto dashboard")
+    st.markdown("---")
+    page = st.radio(
+        "NAVIGATION",
+        ["Overview", "Next-Day Forecast", "7-Day Forecast", "Data Explorer", "About"],
+        label_visibility="visible",
+    )
+    st.markdown("---")
+    st.markdown("**Model status**")
+    for label, path in [("Next-day model", NEXT_DAY_MODEL_PATH), ("7-day model", NEXT_7DAY_MODEL_PATH)]:
+        if path.exists():
+            st.success(f"{label}: Ready", icon="✅")
+        else:
+            st.error(f"{label}: File missing", icon="⚠️")
+    st.caption("Data and model files are loaded from this app's folder.")
 
-page = st.sidebar.radio(
-    "NAVIGATION",
-    [
-        "Dashboard",
-        "Next-Day Prediction",
-        "7-Day Prediction",
-        "Gradio Playground",
-        "About Models"
-    ]
+# --------------------------- Header ------------------------
+st.markdown(
+    """
+    <div class="hero">
+      <div class="eyebrow">Crypto intelligence · ML forecasting</div>
+      <div class="hero-title">BTC Forecast <span style="color:#a78bfa">AI</span></div>
+      <div class="hero-sub">Explore Bitcoin market history and generate experimental next-day and next-7-day closing-price estimates from your saved machine-learning models.</div>
+      <div style="margin-top:16px"><span class="pill">LIVE-READY UI</span><span class="pill">REGRESSION</span><span class="pill">STREAMLIT</span></div>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
-st.sidebar.divider()
-st.sidebar.success("Models loaded successfully")
-st.sidebar.caption("Local machine learning application")
+# ---------------------- Load data safely -------------------
+df = None
+data_error = None
+if DATA_PATH.exists():
+    try:
+        df = load_data(str(DATA_PATH), DATA_PATH.stat().st_mtime)
+    except Exception as exc:
+        data_error = f"Could not read crypto_data.csv: {exc}"
+else:
+    data_error = "crypto_data.csv was not found beside app.py."
 
+if df is not None:
+    date_col = find_column(df, ["Date", "Datetime", "Timestamp"])
+    close_col = find_column(df, ["Close (BTC)", "BTC_Close", "BTC Close", "Close"])
+    volume_col = find_column(df, ["Volume (BTC)", "BTC_Volume", "BTC Volume", "Volume"])
+    if close_col:
+        df[close_col] = pd.to_numeric(df[close_col], errors="coerce")
+    if volume_col:
+        df[volume_col] = pd.to_numeric(df[volume_col], errors="coerce")
+    if date_col:
+        df[date_col] = pd.to_datetime(df[date_col], errors="coerce", utc=True)
+    if close_col:
+        df = df.dropna(subset=[close_col])
+        if date_col:
+            df = df.sort_values(date_col).reset_index(drop=True)
 
-# -----------------------------
-# Hero section
-# -----------------------------
-st.markdown("""
-<div class="hero">
-    <h1>₿ BTC Forecast AI</h1>
-    <p>
-        Bitcoin price forecasting powered by Machine Learning.
-        Explore next-day and 7-day model predictions in one dashboard.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+    if close_col is None:
+        st.warning("CSV loaded, but BTC closing-price column was not detected. Check the column names in crypto_data.csv.")
+else:
+    date_col, close_col, volume_col = None, None, None
+    st.warning(data_error)
+    st.info("Dashboard layout is ready. Add crypto_data.csv and the model files beside app.py to enable data and predictions.")
 
+# ------------------------- Overview ------------------------
+if page == "Overview":
+    st.markdown("### Market snapshot")
+    if df is not None and close_col and not df.empty:
+        latest = df.iloc[-1]
+        latest_close = float(latest[close_col])
+        previous_close = float(df.iloc[-2][close_col]) if len(df) > 1 else latest_close
+        change = latest_close - previous_close
+        change_pct = (change / previous_close * 100) if previous_close else 0
+        latest_volume = float(latest[volume_col]) if volume_col and pd.notna(latest[volume_col]) else np.nan
+        latest_date = latest[date_col].strftime("%d %b %Y") if date_col and pd.notna(latest[date_col]) else "Latest row"
 
-# -----------------------------
-# Reusable prediction form
-# -----------------------------
-def prediction_form(horizon):
-    st.markdown(
-        f'<div class="section-title">{horizon} Forecast</div>',
-        unsafe_allow_html=True
-    )
+        c1, c2, c3, c4 = st.columns(4, gap="medium")
+        with c1: make_metric("LATEST BTC CLOSE", money(latest_close), latest_date)
+        with c2: make_metric("DAILY CHANGE", f"{change:+,.2f}", f"{change_pct:+.2f}% vs previous row")
+        with c3: make_metric("BTC VOLUME", f"{latest_volume:,.0f}" if np.isfinite(latest_volume) else "—", "Latest available row")
+        with c4: make_metric("DATA POINTS", f"{len(df):,}", "Rows available in CSV")
 
-    st.write(
-        "Enter the latest Bitcoin closing price and trading volume."
-    )
+        st.markdown('<div class="section-head"></div>', unsafe_allow_html=True)
+        st.plotly_chart(plot_price_chart(df, date_col, close_col, volume_col), use_container_width=True, config={"displayModeBar": False})
 
-    with st.form(f"form_{horizon}"):
-        col1, col2 = st.columns(2)
-
-        with col1:
-            close = st.number_input(
-                "BTC Close Price (USD)",
-                min_value=0.01,
-                value=81676.33,
-                step=100.0,
-                format="%.2f"
-            )
-
-        with col2:
-            volume = st.number_input(
-                "BTC Volume",
-                min_value=0.0,
-                value=1000000000.0,
-                step=1000000.0,
-                format="%.2f"
-            )
-
-        submitted = st.form_submit_button(
-            "Generate Prediction",
-            use_container_width=True
-        )
-
-    if submitted:
-        try:
-            result = predict_btc(close, volume, horizon)
-
+        left, right = st.columns([1.25, 1], gap="large")
+        with left:
+            st.markdown("#### Recent market data")
+            display_cols = [c for c in [date_col, close_col, volume_col] if c]
+            recent = df[display_cols].tail(8).copy()
+            if date_col:
+                recent[date_col] = recent[date_col].dt.strftime("%Y-%m-%d")
+            st.dataframe(recent.iloc[::-1], use_container_width=True, hide_index=True)
+        with right:
+            st.markdown("#### Forecast workspace")
             st.markdown(
-                '<div class="section-title">Prediction Result</div>',
-                unsafe_allow_html=True
+                "Use the forecast pages to enter the latest BTC close and volume, then generate a model estimate. "
+                "Predictions are experimental and should be compared with a simple baseline."
             )
+            if NEXT_DAY_MODEL_PATH.exists() and NEXT_7DAY_MODEL_PATH.exists():
+                st.success("Both model files are present.")
+            else:
+                st.warning("One or more model files are missing.")
+    else:
+        st.markdown("#### Get started")
+        st.write("Place these files in the same folder as `app.py`:")
+        st.code("app.py\ncrypto_data.csv\nbtc_next_day_lr.pkl\nbtc_next_7day_mlp.pkl", language="text")
+        st.caption("The dashboard will automatically populate when the CSV is available.")
 
-            c1, c2 = st.columns(2)
-
-            with c1:
-                st.markdown(
-                    f"""
-                    <div class="metric-card">
-                        <div class="metric-label">
-                            Predicted BTC Close
-                        </div>
-                        <div class="metric-value">
-                            ${result:,.2f}
-                        </div>
-                        <div class="metric-note">
-                            {horizon} model output
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-            with c2:
-                change = result - close
-                change_pct = (change / close) * 100
-
-                st.markdown(
-                    f"""
-                    <div class="metric-card">
-                        <div class="metric-label">
-                            Change vs Input Price
-                        </div>
-                        <div class="metric-value">
-                            {change_pct:+.2f}%
-                        </div>
-                        <div class="metric-note">
-                            ${change:+,.2f} USD
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-            st.caption(
-                "Change is relative to your input price, not a guaranteed "
-                "future market return."
-            )
-
-        except Exception as e:
-            st.error(f"Prediction failed: {e}")
-
-
-# -----------------------------
-# Dashboard page
-# -----------------------------
-if page == "Dashboard":
-
+# ---------------------- Forecast pages ---------------------
+elif page in ["Next-Day Forecast", "7-Day Forecast"]:
+    is_7day = page == "7-Day Forecast"
+    st.markdown("### " + ("Next 7-day closing-price estimate" if is_7day else "Next-day closing-price estimate"))
     st.markdown(
-        '<div class="section-title">Model Overview</div>',
-        unsafe_allow_html=True
+        '<p class="subtle">Enter values that would actually be known at prediction time. Keep the same feature order and preprocessing used during model training.</p>',
+        unsafe_allow_html=True,
     )
+    model_path = NEXT_7DAY_MODEL_PATH if is_7day else NEXT_DAY_MODEL_PATH
+    horizon_label = "7-day" if is_7day else "next-day"
 
+    latest_close = float(df[close_col].iloc[-1]) if df is not None and close_col and not df.empty else 0.0
+    latest_volume = float(df[volume_col].iloc[-1]) if df is not None and volume_col and not df.empty and pd.notna(df[volume_col].iloc[-1]) else 0.0
+    latest_date = df[date_col].iloc[-1].date() if df is not None and date_col and not df.empty and pd.notna(df[date_col].iloc[-1]) else date.today()
+
+    form_col, result_col = st.columns([1, 1.1], gap="large")
+    with form_col:
+        st.markdown("#### Input features")
+        with st.form("forecast_form"):
+            input_close = st.number_input("Latest BTC Close (USD)", min_value=0.0, value=max(latest_close, 0.01), step=100.0, format="%.2f")
+            input_volume = st.number_input("Latest BTC Volume", min_value=0.0, value=max(latest_volume, 0.0), step=100000.0, format="%.2f")
+            input_date = st.date_input("Last observed market date", value=latest_date)
+            submitted = st.form_submit_button("Generate forecast", type="primary", use_container_width=True)
+        st.caption("Defaults are taken from the last row of crypto_data.csv when available.")
+
+    with result_col:
+        st.markdown("#### Forecast result")
+        if submitted:
+            if not model_path.exists():
+                st.error(f"Model file not found: {model_path.name}")
+            else:
+                try:
+                    model = load_pickle(str(model_path), model_path.stat().st_mtime)
+                    features = pd.DataFrame([[input_close, input_volume]], columns=["Close (BTC)", "Volume (BTC)"])
+                    # The saved estimator must contain any scaler/preprocessing used at training time,
+                    # or the same scaler must be applied here before prediction.
+                    prediction = float(np.asarray(model.predict(features)).reshape(-1)[0])
+                    forecast_date = input_date + timedelta(days=7 if is_7day else 1)
+                    delta = prediction - input_close
+                    delta_pct = (delta / input_close * 100) if input_close else 0
+                    st.markdown(
+                        f"""<div class="metric-card" style="border-color:rgba(34,211,238,.32);">
+                        <div class="metric-label">PREDICTED BTC CLOSE · {horizon_label.upper()}</div>
+                        <div class="metric-value" style="font-size:2.1rem;color:#67e8f9;">{money(prediction)}</div>
+                        <div class="metric-note">Estimated date: {forecast_date.strftime('%d %b %Y')}</div>
+                        </div>""",
+                        unsafe_allow_html=True,
+                    )
+                    st.write("")
+                    a, b = st.columns(2)
+                    with a: make_metric("CHANGE VS INPUT CLOSE", f"{delta:+,.2f}", f"{delta_pct:+.2f}% (not a guaranteed return)")
+                    with b: make_metric("MODEL HORIZON", "7 days" if is_7day else "1 day", "Based on the selected saved model")
+                    compare = pd.DataFrame({
+                        "Type": ["Latest/input close", "Model estimate"],
+                        "BTC price (USD)": [input_close, prediction],
+                    })
+                    fig = go.Figure()
+                    fig.add_trace(go.Bar(x=compare["Type"], y=compare["BTC price (USD)"], marker_color=["#64748b", "#8b5cf6"], text=[money(v) for v in compare["BTC price (USD)"]], textposition="outside"))
+                    fig.update_layout(
+                        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                        font=dict(color="#aab7cf"), height=300, margin=dict(l=5,r=5,t=20,b=5),
+                        yaxis=dict(title="USD", gridcolor="rgba(148,163,184,.08)", tickprefix="$"),
+                    )
+                    st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+                    st.download_button(
+                        "Download forecast CSV",
+                        data=pd.DataFrame([{
+                            "last_observed_date": input_date.isoformat(),
+                            "forecast_date": forecast_date.isoformat(),
+                            "horizon": horizon_label,
+                            "input_btc_close": input_close,
+                            "input_btc_volume": input_volume,
+                            "predicted_btc_close": prediction,
+                        }]).to_csv(index=False).encode("utf-8"),
+                        file_name=f"btc_{horizon_label}_forecast.csv",
+                        mime="text/csv",
+                        use_container_width=True,
+                    )
+                except Exception as exc:
+                    st.error(f"Prediction failed: {exc}")
+                    st.warning(
+                        "Check that this model was trained with exactly these two features, in this order: "
+                        "`Close (BTC)`, `Volume (BTC)`. If training used a separate StandardScaler, load and apply that same scaler here."
+                    )
+        else:
+            st.markdown(
+                f"""<div class="metric-card">
+                <div class="metric-label">YOUR {horizon_label.upper()} FORECAST</div>
+                <div class="metric-value">Ready when you are</div>
+                <div class="metric-note">Enter the latest known market inputs and click Generate forecast.</div>
+                </div>""",
+                unsafe_allow_html=True,
+            )
+            st.write("")
+            st.info("The result is a model estimate, not a live exchange price or a guarantee of future performance.")
+
+# ------------------------ Data Explorer --------------------
+elif page == "Data Explorer":
+    st.markdown("### Data explorer")
+    if df is not None:
+        st.caption(f"{len(df):,} rows · {len(df.columns)} columns")
+        search = st.text_input("Filter columns by name", placeholder="e.g. BTC, Volume, Date")
+        columns = [c for c in df.columns if search.lower() in str(c).lower()] if search else list(df.columns)
+        st.dataframe(df[columns].tail(250), use_container_width=True, hide_index=True)
+        st.download_button(
+            "Download displayed data",
+            data=df[columns].to_csv(index=False).encode("utf-8"),
+            file_name="crypto_data_export.csv",
+            mime="text/csv",
+        )
+        if close_col:
+            st.markdown("#### Summary statistics")
+            stats = df[close_col].describe().to_frame(name="BTC Close")
+            st.dataframe(stats, use_container_width=True)
+    else:
+        st.warning(data_error or "No data available.")
+
+# ---------------------------- About ------------------------
+elif page == "About":
+    st.markdown("### About this project")
+    st.write(
+        "BTC Forecast AI is a local demonstration dashboard for a Bitcoin price-regression project. "
+        "It visualizes historical data and runs locally saved models for next-day and next-7-day estimates."
+    )
+    st.markdown("#### Components")
     c1, c2, c3 = st.columns(3)
-
     with c1:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-label">Forecast Horizons</div>
-            <div class="metric-value">1D / 7D</div>
-            <div class="metric-note">Two prediction models</div>
-        </div>
-        """, unsafe_allow_html=True)
-
+        st.markdown("**Data**")
+        st.caption("Historical crypto data from your CSV file.")
     with c2:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-label">Next-Day Model</div>
-            <div class="metric-value">Linear Regression</div>
-            <div class="metric-note">btc_next_day_lr.pkl</div>
-        </div>
-        """, unsafe_allow_html=True)
-
+        st.markdown("**Models**")
+        st.caption("Linear Regression for next-day and MLP-based model for 7-day forecast.")
     with c3:
-        st.markdown("""
-        <div class="metric-card">
-            <div class="metric-label">7-Day Model</div>
-            <div class="metric-value">MLP Regressor</div>
-            <div class="metric-note">StandardScaler pipeline</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown(
-        '<div class="section-title">Explore Predictions</div>',
-        unsafe_allow_html=True
-    )
-
-    left, right = st.columns(2)
-
-    with left:
-        st.info(
-            "**Next-Day Prediction**\n\n"
-            "Estimate the next-day closing price using Linear Regression."
-        )
-        if st.button("Open Next-Day Model", use_container_width=True):
-            st.session_state["navigation"] = "Next-Day Prediction"
-            st.rerun()
-
-    with right:
-        st.info(
-            "**7-Day Prediction**\n\n"
-            "Estimate the 7-day target using the trained MLP pipeline."
-        )
-        if st.button("Open 7-Day Model", use_container_width=True):
-            st.session_state["navigation"] = "7-Day Prediction"
-            st.rerun()
-
-    st.caption(
-        "Enter realistic inputs from the same data distribution used "
-        "during model training."
-    )
-
-
-# -----------------------------
-# Prediction pages
-# -----------------------------
-elif page == "Next-Day Prediction":
-    prediction_form("Next Day")
-
-elif page == "7-Day Prediction":
-    prediction_form("Next 7 Days")
-
-
-# -----------------------------
-# Gradio Playground
-# -----------------------------
-elif page == "Gradio Playground":
-
-    st.markdown(
-        '<div class="section-title">Gradio Interactive Playground</div>',
-        unsafe_allow_html=True
-    )
-
-    st.write(
-        "Use the embedded Gradio interface to compare both trained models."
-    )
-
-    def gradio_predict(close, volume, horizon):
-        result = predict_btc(close, volume, horizon)
-        return f"${result:,.2f} USD"
-
-    demo = gr.Blocks(
-        theme=gr.themes.Soft(
-            primary_hue="indigo",
-            secondary_hue="blue"
-        ),
-        title="BTC Forecast Playground"
-    )
-
-    with demo:
-        gr.Markdown("# ₿ BTC Forecast Playground")
-        gr.Markdown(
-            "Enter the latest BTC Close and Volume to generate a forecast."
-        )
-
-        with gr.Row():
-            g_close = gr.Number(
-                label="BTC Close Price (USD)",
-                value=81676.33,
-                minimum=0.01
-            )
-            g_volume = gr.Number(
-                label="BTC Volume",
-                value=1000000000.0,
-                minimum=0
-            )
-
-        g_horizon = gr.Radio(
-            ["Next Day", "Next 7 Days"],
-            value="Next Day",
-            label="Prediction Horizon"
-        )
-
-        g_button = gr.Button("Predict BTC Price", variant="primary")
-        g_output = gr.Textbox(label="Predicted BTC Close")
-
-        g_button.click(
-            fn=gradio_predict,
-            inputs=[g_close, g_volume, g_horizon],
-            outputs=g_output
-        )
-
-    # Start Gradio only once, even when Streamlit reruns.
-    if not globals().get("_GRADIO_STARTED", False):
-        try:
-            demo.launch(
-                server_name="127.0.0.1",
-                server_port=7862,
-                share=False,
-                prevent_thread_lock=True,
-                quiet=True
-            )
-            globals()["_GRADIO_STARTED"] = True
-        except Exception as e:
-            st.error(f"Could not start Gradio: {e}")
-
-    components.iframe(
-    "http://127.0.0.1:7862",
-    height=650,
-    scrolling=True
-    )
-
-    st.caption(
-        "Gradio runs locally on port 7861; Streamlit runs on port 8501."
-    )
-
-
-# -----------------------------
-# Model information
-# -----------------------------
-elif page == "About Models":
-
-    st.markdown(
-        '<div class="section-title">Model Information</div>',
-        unsafe_allow_html=True
-    )
-
-    model_info = pd.DataFrame({
-        "Property": [
-            "Next-Day Model",
-            "7-Day Model",
-            "Input Feature 1",
-            "Input Feature 2",
-            "Prediction Target"
-        ],
-        "Details": [
-            "Linear Regression",
-            "MLPRegressor + StandardScaler",
-            "Close (BTC)",
-            "Volume (BTC)",
-            "BTC closing price"
-        ]
-    })
-
-    st.dataframe(model_info, hide_index=True, use_container_width=True)
-
+        st.markdown("**Interface**")
+        st.caption("Streamlit · Plotly · Local pickle models")
     st.warning(
-        "The app uses the exact two input features expected by your "
-        "saved models. Confirm that the 7-day model was trained against "
-        "the intended 7-day target before interpreting its output."
+        "Important: This is an educational project, not financial advice. Crypto prices are volatile. "
+        "Model estimates can be wrong and should not be used alone for trading decisions."
+    )
+    st.markdown("#### Expected folder structure")
+    st.code(
+        "your_project/\n"
+        "├── app.py\n"
+        "├── ccrypto_08_OCT_2026.csv\n"
+        "├── btc_next_day_lr.pkl\n"
+        "└── btc_next_7day_mlp.pkl",
+        language="text",
     )
 
-    st.markdown("### Important")
-    st.write(
-        "The models use only Close and Volume as inputs. They do not "
-        "automatically fetch live market data or guarantee future prices."
-    )
-
-
-# -----------------------------
-# Footer
-# -----------------------------
-st.markdown("""
-<div class="footer">
-    BTC Forecast AI · Streamlit + Gradio · Local ML Dashboard
-</div>
-""", unsafe_allow_html=True)
+st.markdown(
+    '<div class="footer">BTC Forecast AI · Local machine-learning demo · Predictions are estimates, not financial advice.</div>',
+    unsafe_allow_html=True,
+)
