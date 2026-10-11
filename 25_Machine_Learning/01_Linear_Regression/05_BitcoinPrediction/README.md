@@ -47,16 +47,16 @@ streamlit run app.py
 ## Application Screenshots
 
 ### 1. Dashboard Overview
-![BTC Forecast AI Overview](overview.png)
+![BTC Forecast AI Overview](./overview.png.png)
 
 ### 2. Next-Day Forecast
-![Next-Day Bitcoin Forecast](next_day_forecast.png)
+![Next-Day Bitcoin Forecast](./next_day_forecast.png.png)
 
 ### 3. Data Explorer
-![Cryptocurrency Data Explorer](data_explorer.png)
+![Cryptocurrency Data Explorer](./data_explorer.png.png)
 
 ### 4. About the Project
-![About BTC Forecast AI](about.png)
+![About BTC Forecast AI](./about.png.png)
 
 ## Disclaimer
 This project is for educational purposes only. Cryptocurrency price predictions are not guaranteed to be accurate and should not be considered financial advice.
