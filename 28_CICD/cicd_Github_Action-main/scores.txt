@@ -1,0 +1,12 @@
+Random Forest Train Var: 99.1%
+Random Forest Test Var: 94.3%
+F1 Score: 1.0%
+Recall Score: 1.0%
+Precision Score: 1.0%
+
+
+Logistic Regression Train Var: 68.3%
+Logistic Regression Test Var: 60.0%
+F1 Score: 0.6%
+Recall Score: 0.6%
+Precision Score: 0.6%
